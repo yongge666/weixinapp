@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/swiper/swiper"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#282832",
+    "navigationBarTitleText": "图解电影",
+    "navigationBarTextStyle":"white"
+  }
+}
