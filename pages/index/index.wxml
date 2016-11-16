@@ -1,10 +1,73 @@
 <!--index.wxml-->
+  <!--swiper开始-->
    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">    
-      <block wx:for="{{img}}" wx:for-index="i">
-     <navigator url="{{item.url}}">
+      <block wx:for="{{swiperImg}}" wx:for-index="i">
+     <navigator url="{{item.url}}?id={i}">
         <swiper-item>
           <image src="{{item.imgurl}}" class="slide-image" mode="aspectFill"/>
         </swiper-item>  
         </navigator> 
       </block>    
     </swiper>
+    <!--swiper结束-->
+    <view class="line"></view>
+    <!--照片墙开始-->
+    <view class="index-title">电影类型</view>
+    <view>
+      <view class="pic-wall">
+      <block wx:for="{{wallImg}}" wx:for-index="i">
+      <swiper-item class="mask">
+        <view class="mask-img" wx:if="{{i == 0}}"><image src="{{item.imgurl}}" class="wall-img-first wall-img-common" mode="aspectFill"/></view>
+        <view classs="mask-img" wx:elif="{{i == wallImgLen-1}}"><image src="{{item.imgurl}}" class="wall-img-last wall-img-common" mode="aspectFill"/></view>
+        <view classs="mask-img" wx:else><image src="{{item.imgurl}}" class="wall-img-normal wall-img-common" mode="aspectFill"/></view>
+        </swiper-item> 
+      </block>
+      </view>
+    </view>
+    <!--照片墙结束-->
+    <view class="line"></view>
+
+    <!--热门标签开始-->
+    <view class="hot-tag">
+      <view class="index-title">热门标签</view>
+      <view class="tag-container">
+        <view class="tag-btn">热门标签a</view>
+        <view class="tag-btn">单身狗必看</view>
+        <view class="tag-btn">逗比</view>
+        <view class="tag-btn">经典</view>
+        <view class="tag-btn">热门标签c</view>
+        <view class="tag-btn">热门标签c</view>
+         <view class="tag-btn">经典</view>
+      </view>
+    </view>
+    <!--热门标签结束-->
+     <view class="line"></view>
+        <!--图解精选开始-->
+    <view class="selected-movie">
+      <view class="index-title">图解精选</view>
+      <view class="selected-container">
+        <block wx:for="{{list}}" wx:for-index="i">
+          <swiper-item>
+            <view class="item">
+              <image class="item-img" src="{{item.imgurl}}" mode="aspectFill"/>
+              <view class="item-title">{{item.title}}</view>
+              <view class="item-intro">{{item.intro}}</view>
+              <view class="item-intro">{{item.type}}</view>
+              <view class="item-footer">
+                <view class="item-footer-left item-intro">
+                <view >
+                <image class="item-avatar" src="{{item.avatar}}" mode="aspectFill"/></view>{{item.username}}</view>
+                <view class="item-line">|</view>
+                <view class="item-footer-right item-intro">
+                  <view class="item-look"><image class="item-icon item-icon-eye" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_eye@2x.png" mode="aspectFill"/>{{item.look}}</view>
+                  <view class="item-like"><image class="item-icon item-icon-like" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_like@2x.png" mode="aspectFill"/>{{item.like}}</view>
+                  <view class="item-comment"><image class="item-icon item-icon-comment" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_comment@2x.png" mode="aspectFill"/>{{item.comment}}</view>
+                  
+                </view>
+              </view>
+            </view>
+         </swiper-item> 
+      </block>
+      </view>
+    </view>
+    <!--图解精选结束-->

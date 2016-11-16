@@ -25,32 +25,61 @@
 //     })
 //   }
 // })
-//获取轮播数据
-var swiperData = new Object;
-wx.request({
-  url: 'http://ser3.graphmovie.com/pcmaker/GMStudios/home/index.php?m=Index&a=getImgUrl', //仅为示例，并非真实的接口地址
-  data: {
-     x: '' ,
-     y: ''
-  },
-  header: {
-      'Content-Type': 'application/json'
-  },
-  success: function(res) {
-    console.log(res.data)
-  }
 
-})
-
+//
 Page({    
   data: {    
-    img:[
+    swiperImg:[
     {imgurl:'http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg',url:'../../pages/swiper/swiper'} ,    
     {imgurl:'http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg',url:'../../pages/swiper/swiper'} ,    
     {imgurl:'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg',url:'../../pages/swiper/swiper'} ,    
     {imgurl:'http://img02.tooopen.com/images/20141231/sy_78327074576.jpg',url:'../../pages/swiper/swiper'}          
-    ]   
-  },    
-  onLoad: function () {    
+    ],
+    wallImg:[
+    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,    
+    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_xiju@2x.png',url:'../../pages/swiper/swiper'} ,    
+    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_aiqing@2x.png',url:'../../pages/swiper/swiper'} ,    
+    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_xuanyi-@2x.png',url:'../../pages/swiper/swiper'},
+    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_juqing@2x.png',url:'../../pages/swiper/swiper'},
+    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kehuan@2x.png',url:'../../pages/swiper/swiper'}        
+    ],  
+    list:[
+    {title:'凯撒万岁',intro:'美式黑色幽默,看不懂不怪你',type:'喜剧|剧情|悬疑',username:'用户名',avatar:'http://imgs4.graphmovie.com/appimage/appavatar.jpg',look:200,like:100,comment:60,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,    
+    {title:'凯撒万岁',intro:'美式黑色幽默,看不懂不怪你',type:'喜剧|剧情|悬疑',username:'用户名',avatar:'http://imgs4.graphmovie.com/appimage/appavatar.jpg',look:200,like:100,comment:60,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,   
+    {title:'凯撒万岁',intro:'美式黑色幽默,看不懂不怪你',type:'喜剧|剧情|悬疑',username:'用户名',avatar:'http://imgs4.graphmovie.com/appimage/appavatar.jpg',look:200,like:100,comment:60,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,   
+    {title:'凯撒万岁',intro:'美式黑色幽默,看不懂不怪你',type:'喜剧|剧情|悬疑',username:'用户名',avatar:'http://imgs4.graphmovie.com/appimage/appavatar.jpg',look:200,like:100,comment:60,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,
+    {title:'凯撒万岁',intro:'美式黑色幽默,看不懂不怪你',type:'喜剧|剧情|悬疑',username:'用户名',avatar:'http://imgs4.graphmovie.com/appimage/appavatar.jpg',look:200,like:100,comment:60,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,
+    {title:'凯撒万岁',intro:'美式黑色幽默,看不懂不怪你',type:'喜剧|剧情|悬疑',username:'用户名',avatar:'http://imgs4.graphmovie.com/appimage/appavatar.jpg',look:200,like:100,comment:60,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,     
+    ]
+  },
+  loadData:function(url,data){
+        wx.request({
+        url: url,
+        data:data,
+        header: {
+            'Content-Type': 'application/json'
+        },
+        success: function(res) {
+            console.log(res.data)
+        }
+
+    })
+  },
+  loadMore:function(event){
+      var id = event.currentTarget.dataset.id;
+      console.log(id)
+  },
+  onLoad: function () {
+      //数据初始化
+      var that = this;
+      var wallImgLen = that.data.wallImg.length;
+      that.setData({
+        wallImgLen:wallImgLen
+      });
+      //1.获取轮播数据
+      var swiperUrl = 'http://ser3.graphmovie.com/appweb/weiapi/index.php?c=Index&m=getSwiperImgUrl';
+      var swiperData = {'id':1};
+      this.loadData(swiperUrl,swiperData);
+
   }    
 })  
