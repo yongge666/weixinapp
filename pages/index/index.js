@@ -52,6 +52,23 @@ Page({
     {title:'凯撒万岁',intro:'美式黑色幽默,看不懂不怪你',type:'喜剧|剧情|悬疑',username:'用户名',avatar:'http://imgs4.graphmovie.com/appimage/appavatar.jpg',look:200,like:100,comment:60,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,     
     ]
   },
+  getSearchWords:function(e){
+     this.setData({
+      inputValue: e.detail.value
+    })
+  },
+  doSearch:function(e){
+      var searchWords = e.currentTarget.dataset.inputvalue;
+      wx.navigateTo({
+        url: '../search/searchResult?searchWords='+searchWords,
+        success: function(res){
+          // success
+        },
+        complete: function() {
+          // complete
+        }
+      })
+  },
   loadData:function(url,data){
         wx.request({
         url: url,

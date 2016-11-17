@@ -1,5 +1,10 @@
 <!--index.wxml-->
   <!--swiper开始-->
+  <view class="swiper-main">
+    <view class="search">
+    <input class="search-input"  bindinput="getSearchWords" placeholder="搜索关键词" focus="true"/>
+    <image bindtap="doSearch" data-inputValue="{{inputValue}}"  class="search-icon"  src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/btn_search@2x.png" mode="aspectFill"/>
+    </view>
    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">    
       <block wx:for="{{swiperImg}}" wx:for-index="i">
      <navigator url="{{item.url}}?id={i}">
@@ -9,6 +14,7 @@
         </navigator> 
       </block>    
     </swiper>
+    </view>
     <!--swiper结束-->
     <view class="line"></view>
     <!--照片墙开始-->
@@ -16,11 +22,11 @@
     <view>
       <view class="pic-wall">
       <block wx:for="{{wallImg}}" wx:for-index="i">
-      <swiper-item class="mask">
-        <view class="mask-img" wx:if="{{i == 0}}"><image src="{{item.imgurl}}" class="wall-img-first wall-img-common" mode="aspectFill"/></view>
-        <view classs="mask-img" wx:elif="{{i == wallImgLen-1}}"><image src="{{item.imgurl}}" class="wall-img-last wall-img-common" mode="aspectFill"/></view>
-        <view classs="mask-img" wx:else><image src="{{item.imgurl}}" class="wall-img-normal wall-img-common" mode="aspectFill"/></view>
-        </swiper-item> 
+      <swiper-item>
+        <view wx:if="{{i == 0}}" class="imgbox"><view class="mask-img"></view><image src="{{item.imgurl}}" class="wall-img-first wall-img-common" mode="aspectFill"/></view>
+        <view class="imgbox"  wx:elif="{{i == wallImgLen-1}}"><view class="mask-img"></view><image src="{{item.imgurl}}" class="wall-img-last wall-img-common" mode="aspectFill"/></view>
+        <view class="imgbox" wx:else><view class="mask-img"></view><image src="{{item.imgurl}}" class="wall-img-normal wall-img-common" mode="aspectFill"/></view>
+        </swiper-item>
       </block>
       </view>
     </view>
