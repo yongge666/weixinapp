@@ -23,9 +23,9 @@
       <view class="pic-wall">
       <block wx:for="{{wallImg}}" wx:for-index="i">
       <swiper-item>
-        <view wx:if="{{i == 0}}" class="imgbox"><view class="mask-img"></view><image src="{{item.imgurl}}" class="wall-img-first wall-img-common" mode="aspectFill"/></view>
-        <view class="imgbox"  wx:elif="{{i == wallImgLen-1}}"><view class="mask-img"></view><image src="{{item.imgurl}}" class="wall-img-last wall-img-common" mode="aspectFill"/></view>
-        <view class="imgbox" wx:else><view class="mask-img"></view><image src="{{item.imgurl}}" class="wall-img-normal wall-img-common" mode="aspectFill"/></view>
+        <view wx:if="{{i == 0}}" class="imgbox wall-img-first wall-img-common"><view class="mask-img wall-img-first wall-img-common"><view class="type-text">{{item.text}}</view><view class="num-text">{{item.num}}部</view></view><image src="{{item.imgurl}}" class="wall-img-first wall-img-common" mode="aspectFill"/></view>
+        <view class="imgbox wall-img-last wall-img-common"  wx:elif="{{i == wallImgLen-1}}"><view class="mask-img wall-img-last wall-img-common"><view class="type-text">{{item.text}}</view><view class="num-text">{{item.num}}部</view></view><image src="{{item.imgurl}}" class="wall-img-last wall-img-common" mode="aspectFill"/></view>
+        <view class="imgbox wall-img-normal wall-img-common" wx:else><view class="mask-img wall-img-normal wall-img-common"><view class="type-text">{{item.text}}</view><view class="num-text">{{item.num}}部</view></view><image src="{{item.imgurl}}" class="wall-img-normal wall-img-common" mode="aspectFill"/></view>
         </swiper-item>
       </block>
       </view>

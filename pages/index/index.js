@@ -36,12 +36,12 @@ Page({
     {imgurl:'http://img02.tooopen.com/images/20141231/sy_78327074576.jpg',url:'../../pages/swiper/swiper'}          
     ],
     wallImg:[
-    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,    
-    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_xiju@2x.png',url:'../../pages/swiper/swiper'} ,    
-    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_aiqing@2x.png',url:'../../pages/swiper/swiper'} ,    
-    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_xuanyi-@2x.png',url:'../../pages/swiper/swiper'},
-    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_juqing@2x.png',url:'../../pages/swiper/swiper'},
-    {imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kehuan@2x.png',url:'../../pages/swiper/swiper'}        
+    {text:'恐怖',num:369,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,    
+    {text:'喜剧',num:369,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_xiju@2x.png',url:'../../pages/swiper/swiper'} ,    
+    {text:'爱情',num:369,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_aiqing@2x.png',url:'../../pages/swiper/swiper'} ,    
+    {text:'悬疑',num:369,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_xuanyi-@2x.png',url:'../../pages/swiper/swiper'},
+    {text:'剧情',num:369,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_juqing@2x.png',url:'../../pages/swiper/swiper'},
+    {text:'科幻',num:369,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kehuan@2x.png',url:'../../pages/swiper/swiper'}        
     ],  
     list:[
     {title:'凯撒万岁',intro:'美式黑色幽默,看不懂不怪你',type:'喜剧|剧情|悬疑',username:'用户名',avatar:'http://imgs4.graphmovie.com/appimage/appavatar.jpg',look:200,like:100,comment:60,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,    
@@ -98,5 +98,5 @@ Page({
       var swiperData = {'id':1};
       this.loadData(swiperUrl,swiperData);
 
-  }    
+  },
 })  

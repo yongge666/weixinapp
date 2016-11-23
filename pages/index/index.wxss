@@ -62,10 +62,6 @@ image{
   display: block;
   max-width: 100%;
 }
-.mask {
-    opacity:1;
-}
-
 .line{
   height: 20rpx;
   background-color: #efefef;
@@ -94,6 +90,33 @@ image{
   flex-wrap:wrap;
   box-sizing: border-box;
   padding: 0 20rpx 0 10rpx;
+}
+.imgbox{
+   height: 200rpx;
+   position: relative;
+}
+.mask-img{
+  height:200rpx;
+  line-height: 200rpx;
+  color: #ffffff;
+  text-align: center;
+  position: absolute;
+  left: 20rpx;
+  top: -10rpx;
+  /*border: 1px solid red;*/
+  background-color: #000;
+  opacity: 0.6;
+}
+.type-text{
+  width: 90%;
+  height: 36rpx;
+  margin-top: -30rpx;
+}
+.num-text{
+  width: 90%;
+  height: 36rpx;
+  line-height: 26rpx;
+  margin-top: 100rpx;
 }
 .wall-img-common{
   height: 200rpx;
