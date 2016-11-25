@@ -65,9 +65,9 @@
                 <image class="item-avatar" src="{{item.avatar}}" mode="aspectFill"/></view>{{item.username}}</view>
                 <view class="item-line">|</view>
                 <view class="item-footer-right item-intro">
-                  <view class="item-look"><image class="item-icon item-icon-eye" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_eye@2x.png" mode="aspectFill"/>{{item.look}}</view>
-                  <view class="item-like"><image class="item-icon item-icon-like" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_like@2x.png" mode="aspectFill"/>{{item.like}}</view>
-                  <view class="item-comment"><image class="item-icon item-icon-comment" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_comment@2x.png" mode="aspectFill"/>{{item.comment}}</view>
+                  <view class="item-look item-intro-line"><image class="item-icon item-icon-eye" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_eye@2x.png" mode="aspectFill"/>{{item.look}}</view>
+                  <view class="item-like item-intro-line"><image class="item-icon item-icon-like" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_like@2x.png" mode="aspectFill"/>{{item.like}}</view>
+                  <view class="item-comment item-intro-line"><image class="item-icon item-icon-comment" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_comment@2x.png" mode="aspectFill"/>{{item.comment}}</view>
                   
                 </view>
               </view>

@@ -59,6 +59,9 @@ Page({
   },
   doSearch:function(e){
       var searchWords = e.currentTarget.dataset.inputvalue;
+      if(searchWords.length==0){
+        return false;
+      }
       wx.navigateTo({
         url: '../search/searchResult?searchWords='+searchWords,
         success: function(res){

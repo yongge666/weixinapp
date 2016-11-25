@@ -1,2 +1,18 @@
-<!--index.wxml-->
-  <view>swiper二级页面</view>
+<!--swiper.wxml-->
+  <view class="head-img">
+    <image src="{{detail.imgurl}}"></image>
+  </view>
+  <view class="line"></view>
+  <view class="content">
+    <view class="title">{{detail.title}}</view>
+    <view class="sub-title">{{detail.subTitle}}</view>
+    <view class="desc">{{detail.desc}}</view>
+    <view class="hr"></view>
+    <view class="dline"><view class="stitle">导演:</view><view class="swords">{{detail.director}}</view><view class="clear"></view></view>
+    <view class="dline"><view class="stitle">主演:</view><view class="swords">{{detail.actor}}</view><view class="clear"></view></view>
+    <view class="dline"><view class="stitle">类型:</view><view class="swords">{{detail.type}}</view><view class="clear"></view></view>
+    <view class="dline"><view class="stitle">上映时间:</view><view class="swords">{{detail.date}}</view><view class="clear"></view></view>
+    <view class="dline"><view class="stitle">豆瓣评分:</view><view class="swords">{{detail.score}}</view><view class="clear"></view></view>
+    <view class="intro"><view class="intro-title">剧情简介:</view><view class="intro-words">{{detail.intro}}</view><view class="clear"></view></view>
+
+  </view>

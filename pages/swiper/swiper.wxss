@@ -1,30 +1,69 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/**swiper.wxss**/
+image{
+  max-width: 100%;
+  display: block;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-.swiper {
-  height: 400rpx;
+.head-img{
   width: 100%;
 }
-.swiper image {
-  height: 100%;
+.head-img image{
   width: 100%;
+}
+.line{
+  height: 20rpx;
+  background-color: #efefef;
+}
+.title{
+  margin: 20rpx 0 0 20rpx;
+  font-size: 36rpx;
+  color: #282832;
+}
+.sub-title{
+  margin: 20rpx 0 0 20rpx;
+  font-size: 32rpx;
+  color: #98989b;
+}
+.desc{
+  width: 94%;
+  line-height: 48rpx;
+  margin: 20rpx 20rpx 0 20rpx;
+  color: #98989b;
+  font-size: 30rpx;
+}
+.hr{
+  width: 96%;
+  height: 1rpx;
+  margin: 30rpx  auto 31rpx auto;
+  background-color:#e4e4e2;
+}
+
+.dline{
+  width: 80%;
+  margin: 0 0 20rpx 20rpx;
+}
+.stitle{
+  float: left;
+  color: #585859;
+  font-size: 32rpx;
+}
+.swords{
+   float: left;
+   color: #98989b;
+   font-size: 32rpx;
+}
+.clear{
+  clear: both;
+}
+
+.intro-title{
+  width: 80%;
+  margin: 30rpx 0 20rpx 20rpx;
+  color: #585859;
+  font-size: 32rpx;
+}
+.intro-words{
+  width: 94%;
+  color: #98989b;
+   margin: 20rpx 20rpx 0 20rpx;
+font-size: 32rpx;
 }
