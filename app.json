@@ -2,9 +2,10 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/swiper/swiper",
+    "pages/detail/detail",
     "pages/search/searchResult",
-    "pages/search/searchDetail"
+    "pages/search/searchList",
+    "pages/play/play"
   ],
   "window":{
     "backgroundTextStyle":"light",

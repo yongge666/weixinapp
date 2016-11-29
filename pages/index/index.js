@@ -30,10 +30,10 @@
 Page({    
   data: {    
     swiperImg:[
-    {imgurl:'http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg',url:'../../pages/swiper/swiper'} ,    
-    {imgurl:'http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg',url:'../../pages/swiper/swiper'} ,    
-    {imgurl:'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg',url:'../../pages/swiper/swiper'} ,    
-    {imgurl:'http://img02.tooopen.com/images/20141231/sy_78327074576.jpg',url:'../../pages/swiper/swiper'}          
+    {imgurl:'http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg',url:'../../pages/detail/detail'} ,    
+    {imgurl:'http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg',url:'../../pages/detail/detail'} ,    
+    {imgurl:'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg',url:'../../pages/detail/detail'} ,    
+    {imgurl:'http://img02.tooopen.com/images/20141231/sy_78327074576.jpg',url:'../../pages/detail/detail'}          
     ],
     wallImg:[
     {text:'恐怖',num:369,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,    
