@@ -64,6 +64,104 @@ image{
 .intro-words{
   width: 94%;
   color: #98989b;
-   margin: 20rpx 20rpx 0 20rpx;
-font-size: 32rpx;
+  margin: 20rpx 20rpx 50rpx 20rpx;
+  font-size: 32rpx;
+}
+
+.author{
+  width: 100%;
+  position: relative;
+}
+.author-left{
+  width: 10%;
+  position: absolute;
+  top: 0;
+  left: 20rpx;
+}
+
+.author-left image{
+  width: 70rpx;
+  height: 70rpx;
+  margin: 35rpx 20rpx 30rpx 0;
+  border-radius: 50%;
+
+}
+.author-right{
+  width: 40%;
+  line-height: 40rpx;
+  top: 30rpx;
+  left: 110rpx;
+  position: absolute;
+  font-size: 34rpx;
+}
+
+.username{
+  color: #282832;
+}
+.total{
+  color: #98989b;
+}
+.chr{
+  width: 96%;
+  height: 6rpx;
+  position: absolute;
+  top: 192rpx;
+  left: 2%;
+  background-color:#e4e4e2;
+}
+.line2{
+  height: 20rpx;
+  width: 100%;
+  background-color: #efefef;
+  position: absolute;
+  top: 140rpx;
+  left: 0;
+}
+
+.user{
+  width:100%;
+  position: relative;
+  top: 160rpx;
+}
+.user-left{
+  width: 10%;
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+}
+
+.user-left image{
+  width: 70rpx;
+  height: 70rpx;
+  margin: 35rpx 20rpx 30rpx 0;
+  border-radius: 50%;
+
+}
+
+.hot-title{
+  margin: 30rpx 0 0 20rpx;
+}
+
+.user-right{
+ width: 80%;
+  line-height: 40rpx;
+  top: 50rpx;
+  left: 110rpx;
+  position: absolute;
+  font-size: 34rpx;
+}
+.comment-content{
+  width: 100%;
+  height: 196rpx;
+   position: relative;
+  /*background-color: red;*/
+}
+.comment-user{
+  color: #282832;
+}
+.comment-date{
+  color: #98989b;
+}
+.comment{
+  color: #282832;
 }
