@@ -1,0 +1,5 @@
+<!--searchIndex.wxml-->
+  <view class="search">
+    <input class="search-input"  bindinput="getSearchWords" placeholder="搜索关键词" focus="true"/>
+    <image bindtap="doSearch" data-inputValue="{{inputValue}}"  class="search-icon"  src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_search.png" mode="aspectFill"/>
+    </view>

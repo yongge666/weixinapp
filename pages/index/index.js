@@ -26,6 +26,18 @@
 //   }
 // })
 
+// http://192.168.0.54:8080/gmapi/weapp/interface
+
+
+// post 参数
+
+
+// {
+//     "apiid": "we_app_index",
+//     "params": "",
+//     "ip": ""
+// }
+
 //
 Page({    
   data: {    
@@ -52,26 +64,6 @@ Page({
     {title:'凯撒万岁',intro:'美式黑色幽默,看不懂不怪你',type:'喜剧|剧情|悬疑',username:'用户名',avatar:'http://imgs4.graphmovie.com/appimage/appavatar.jpg',look:200,like:100,comment:60,imgurl:'http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png',url:'../../pages/swiper/swiper'} ,     
     ]
   },
-  getSearchWords:function(e){
-     this.setData({
-      inputValue: e.detail.value
-    })
-  },
-  doSearch:function(e){
-      var searchWords = e.currentTarget.dataset.inputvalue;
-      if(searchWords.length==0){
-        return false;
-      }
-      wx.navigateTo({
-        url: '../search/searchResult?searchWords='+searchWords,
-        success: function(res){
-          // success
-        },
-        complete: function() {
-          // complete
-        }
-      })
-  },
   loadData:function(url,data){
         wx.request({
         url: url,
@@ -88,6 +80,31 @@ Page({
   loadMore:function(event){
       var id = event.currentTarget.dataset.id;
       console.log(id)
+      
+  },
+  goSearch:function(){
+      wx.navigateTo({
+        url: '../search/searchIndex',
+        success: function(res){
+          // success
+        },
+        complete: function() {
+          // complete
+        }
+      })
+  },
+  goPlay:function(event){
+      var id =  event.currentTarget.dataset.id;
+      console.log(id)
+       wx.navigateTo({
+        url: '../play/play?id='+id,
+        success: function(res){
+          // success
+        },
+        complete: function() {
+          // complete
+        }
+      })
   },
   onLoad: function () {
       //数据初始化

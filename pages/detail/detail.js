@@ -38,7 +38,7 @@ Page({
     type:'剧情/喜剧/精选',
     date:'2015-01-22',
     score:98,
-    intro:'A 增加 上传代码时样式自动补全选项，默认开启，开发者可以主动关闭 详A 增加 开发环境不校验请求安全域名以及 TLS 版本选项，默认关闭，开发者可以主动开启 详情 增加 Page 页面脚本错误的提示信息A 增加 同客户的保持一致，校验 wx.request、wx.downloadFile、wx.uploadFile 的 TLS 版本A 增加 工具窗口位置以及大小的自动保存功A 增加 显示模拟器中的错误信息的功能增加 wxml panel 双击标签名展开的功能 增加 打开本地开发目录的功能增加 当前 AppId 的网络配置信息表 修复 同客户端保持一致，移除 Promise，开发者需要自行引入兼容库修复 某些情况下，事件被发布多次的 bug修复 在 devtools 中使用 Ctrl + R 或者 F5 导致模拟器出现错误的问题修复 wxml panel 在 mac 中白屏的问题修复 wxml panel 在 inspect 模式下卡顿的问题修复 wxml panel 在某些情况下假死的问题修复 wxml panel sytle 面板文字重叠的问题修复 wxml panel 无法取消多个样式规则的问题修复 wx.request 设置 content-type 错误的问题修复 wx.downloadFile、wx.uploadFile 未校验可信域名的问题修复 git 切换分支或者文件大量改变时候模拟器白屏的问题修复 wxml 文件不存在的时候没有报错信息的问题'
+    intro:'在组件中可以定义数据，这些数据将会通过事件传递给 SERVICE。 书写方式： 以data-开头，多个单词由连字符-链接，不能有大写(大写会自动转成小写)如data-element-type，最终在 event.target.dataset 中会将连字符转成驼峰elementType'
 
     }
   },    

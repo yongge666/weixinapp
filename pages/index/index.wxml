@@ -1,9 +1,9 @@
 <!--index.wxml-->
   <!--swiper开始-->
   <view class="swiper-main">
-    <view class="search">
-    <input class="search-input"  bindinput="getSearchWords" placeholder="搜索关键词" focus="true"/>
-    <image bindtap="doSearch" data-inputValue="{{inputValue}}"  class="search-icon"  src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/btn_search@2x.png" mode="aspectFill"/>
+    <view class="search" bindtap="goSearch">
+    <input class="search-input"  placeholder="搜索关键词" focus="true"/>
+    <image  class="search-icon"  src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/btn_search@2x.png" mode="aspectFill"/>
     </view>
    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">    
       <block wx:for="{{swiperImg}}" wx:for-index="i">
@@ -54,7 +54,7 @@
       <view class="selected-container">
         <block wx:for="{{list}}" wx:for-index="i">
           <swiper-item>
-            <view class="item">
+            <view class="item" data-id="{{i}}" bindtap="goPlay">
               <image class="item-img" src="{{item.imgurl}}" mode="aspectFill"/>
               <view class="item-title">{{item.title}}</view>
               <view class="item-intro">{{item.intro}}</view>

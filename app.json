@@ -5,6 +5,7 @@
     "pages/detail/detail",
     "pages/search/searchResult",
     "pages/search/searchList",
+    "pages/search/searchIndex",
     "pages/play/play"
   ],
   "window":{
