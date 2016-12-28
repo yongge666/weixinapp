@@ -1,0 +1,6 @@
+<!--rank.wxml-->
+<view class="top">
+<image calss="top-img" src="http://avatar.graphmovie.com/appweb/images/top/hotgod_bg_head.jpg" mode="aspectFill" />
+  <view class="info">通过科学的数据模型，根据 45 天内上线作品的播放、点赞、评分、弹幕、评论、收藏、分享、打赏等数据综合所得的排行榜，每周五更新。</view>
+
+</view>

@@ -2,16 +2,14 @@
   <!--swiper开始-->
   <view class="swiper-main">
     <view class="search" bindtap="goSearch">
-    <input class="search-input"  placeholder="搜索关键词" focus="true"/>
+    <view class="search-input"  placeholder="搜索关键词" disabled="true"></view>
     <image  class="search-icon"  src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/btn_search@2x.png" mode="aspectFill"/>
     </view>
    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">    
       <block wx:for="{{swiperImg}}" wx:for-index="i">
-     <navigator url="{{item.url}}?id={i}">
         <swiper-item>
-          <image src="{{item.imgurl}}" class="slide-image" mode="aspectFill"/>
-        </swiper-item>  
-        </navigator> 
+          <image src="{{item.pic}}" data-page="{{item.script}}" bindtap="goBannerDetail" class="slide-image" mode="aspectFill"/>
+        </swiper-item>
       </block>    
     </swiper>
     </view>

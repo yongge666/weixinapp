@@ -3,3 +3,16 @@
     <input class="search-input"  bindinput="getSearchWords" placeholder="搜索关键词" focus="true"/>
     <image bindtap="doSearch" data-inputValue="{{inputValue}}"  class="search-icon"  src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_search.png" mode="aspectFill"/>
     </view>
+    <view class="search-cancel" bindtap="goIndex">取消</view>
+  <view class="hot-tag">
+      <view class="title">热门搜索</view>
+      <view class="tag-container">
+        <view class="tag-btn">热门标签a</view>
+        <view class="tag-btn">单身狗必看</view>
+        <view class="tag-btn">逗比</view>
+        <view class="tag-btn">经典</view>
+        <view class="tag-btn">热门标签c</view>
+        <view class="tag-btn">热门标签c</view>
+         <view class="tag-btn">经典</view>
+      </view>
+    </view>

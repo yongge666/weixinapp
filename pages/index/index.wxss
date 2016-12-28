@@ -6,7 +6,6 @@ page{
   width:100%;
   position: relative;
 }
-
 .search{
   width: 600rpx;
   height: 54rpx;
@@ -16,9 +15,6 @@ page{
   left: 40rpx;
   z-index: 1;
 }
-
-
-
 .search-input{
    width: 600rpx;
   height: 54rpx;
@@ -41,7 +37,6 @@ page{
   z-index: 2;
   opacity: 1;
 }
-
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -283,4 +278,3 @@ item{
   top: 15rpx;
   left:-25rpx;
 }
-

@@ -1,15 +1,15 @@
 /**searchIndex.wxss**/
+page{
+  font-family:"PingFangSC-Regular",'微软雅黑',"Microsoft YaHei" ! important; 
+}
 .search{
   width: 600rpx;
   height: 54rpx;
   line-height: 54rpx;
   position: absolute;
   top: 14rpx;
-  left: 40rpx;
   z-index: 1;
 }
-
-
 
 .search-input{
   width: 600rpx;
@@ -17,7 +17,7 @@
   line-height: 54rpx;
   position: absolute;
   top: 5rpx;
-  left: 40rpx;
+  left: 20rpx;
   padding-left: 40rpx;
   border-radius:20rpx;
   color:#C2CBC6;
@@ -30,8 +30,51 @@
   height: 34rpx;
   position: absolute;
   top: 12rpx;
-  left: 45rpx;
+  left: 25rpx;
   z-index: 2;
   opacity: 1;
   /*background-color: red;*/
+}
+.search-cancel{
+  width: 10%;
+  position: absolute;
+  right: 0;
+  top:18rpx;
+}
+
+.title{
+  box-sizing: border-box;
+  height: 100rpx;
+  padding-left: 20rpx;
+  line-height: 100rpx;
+  color: #282832;
+   
+}
+
+.hot-tag{
+  width:100%;
+  margin-top: 100rpx;
+}
+.tag-container{
+  width: 100%;
+  display: flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  box-sizing: border-box;
+  padding: 0 10rpx 0 10rpx;
+}
+
+.tag-btn{
+  box-sizing: border-box;
+  max-width: 260rpx;
+  min-width: 130rpx;
+  margin: 15rpx 10rpx 15rpx 10rpx;
+  padding: 0 30rpx 0rpx 30rpx;
+  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
+  border: 1rpx solid #c1c1c1;
+  border-radius: 36rpx;
+  color: #282832;
 }

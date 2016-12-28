@@ -1,4 +1,4 @@
-/**index.wxss**/
+/* pages/grapic/grapic.wxss */
 page{
   font-family:"PingFangSC-Regular",'微软雅黑',"Microsoft YaHei" ! important; 
 }

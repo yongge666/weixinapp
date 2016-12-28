@@ -24,6 +24,9 @@ Page({
         }
       })
   },
+  goIndex:function(){
+    wx.navigateBack();
+  },
   onReady:function(){
     // 页面渲染完成
   },
