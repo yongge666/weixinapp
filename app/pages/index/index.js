@@ -46,6 +46,7 @@ Page({
       success: function (res) {
         //console.log(res.data.message);
         var data = decodeURIComponent(decodeURIComponent(res.data.content));
+        console.log(data);
         var jsonData = JSON.parse(data);
         console.log(jsonData);
         that.setData({
@@ -118,8 +119,7 @@ Page({
       //1.获取轮播数据
       var swiperData = {
         "apiid": "we_app_index",
-        "params": "111",
-        "ip": "192.168.1.19"
+        "params": ""
       };
       this.loadData(POST_URL,swiperData);
   },

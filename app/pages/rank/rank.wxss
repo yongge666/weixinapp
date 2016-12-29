@@ -23,3 +23,21 @@ image{
   font-size: 24rpx;
   color: #fff;
 }
+.content{
+  width: 100%;
+  height: 200rpx;
+  position: relative;
+
+}
+.left{
+  width: 20%;
+  display: inline-block;
+}
+.center{
+  width: 30%;
+  display: inline-block;
+}
+.right{
+  width: 50%;
+  display: inline-block;
+}
