@@ -12,7 +12,7 @@ page{
 }
 
 .search-input{
-  width: 600rpx;
+  width: 580rpx;
   height: 54rpx;
   line-height: 54rpx;
   position: absolute;
@@ -38,8 +38,9 @@ page{
 .search-cancel{
   width: 10%;
   position: absolute;
-  right: 0;
+  right: 18rpx;
   top:18rpx;
+  font-size: 33rpx;
 }
 
 .title{
@@ -49,11 +50,6 @@ page{
   line-height: 100rpx;
   color: #282832;
    
-}
-
-.hot-tag{
-  width:100%;
-  margin-top: 100rpx;
 }
 .tag-container{
   width: 100%;
@@ -77,4 +73,16 @@ page{
   border: 1rpx solid #c1c1c1;
   border-radius: 36rpx;
   color: #282832;
+}
+.show{
+  display: block;
+  width:100%;
+  margin-top: 100rpx;
+}
+.hide{
+  display: none;
+}
+.item{
+  width: 45%;
+  margin: 20rpx 0 0 20rpx;
 }

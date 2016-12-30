@@ -1,6 +1,8 @@
 // pages/search/searchIndex.js
 Page({
-  data:{},
+  data:{
+     display: 'show'
+  },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
   },
@@ -23,6 +25,16 @@ Page({
           // complete
         }
       })
+  },
+  focus:function(){
+    this.setData({
+      display: 'hide'
+    })
+  },
+  blur:function(){
+    this.setData({
+       display: 'show'
+    })
   },
   goIndex:function(){
     wx.navigateBack();

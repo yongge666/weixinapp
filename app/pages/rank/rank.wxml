@@ -5,7 +5,7 @@
   <view class="info">通过科学的数据模型，根据 45 天内上线作品的播放、点赞、评分、弹幕、评论、收藏、分享、打赏等数据综合所得的排行榜，每周五更新。</view>
 </view>
 <view class="content">
-  <view class="item">
+  <view class="item" bindtap="goDetail" data-id="{{item.id}}">
     <view class="left">
       <image calss="top-img" src="http://avatar.graphmovie.com/appweb/images/top/hotgod_icon_S.jpg" mode="aspectFill" />
     </view>
@@ -13,9 +13,27 @@
       <image calss="top-img" src="http://avatar.graphmovie.com/boo/movies/11872/11872_20161213155257_b.jpg" mode="aspectFill" />
     </view>
     <view class="right">
-      <view class="">酒神小姐</view>
-      <view class="">始于性的临终关怀，终于亡的普渡众生</view>
-      <view class="">东方曌钰</view>
+      <view class="right-text">
+        <view class="title">酒神小姐</view>
+        <view class="subtitle">始于性的临终关怀，终于亡的普渡众生</view>
+        <view class="user">东方曌钰</view>
+      </view>
+    </view>
+  </view>
+
+    <view class="item">
+    <view class="left">
+      <image calss="top-img" src="http://avatar.graphmovie.com/appweb/images/top/hotgod_icon_S.jpg" mode="aspectFill" />
+    </view>
+    <view class="center">
+      <image calss="top-img" src="http://avatar.graphmovie.com/boo/movies/11872/11872_20161213155257_b.jpg" mode="aspectFill" />
+    </view>
+    <view class="right">
+      <view class="right-text">
+        <view class="title">酒神小姐</view>
+        <view class="subtitle">始于性的临终关怀，终于亡的普渡众生</view>
+        <view class="user">东方曌钰</view>
+      </view>
     </view>
   </view>
 </view>
