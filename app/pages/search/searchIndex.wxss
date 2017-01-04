@@ -86,3 +86,9 @@ page{
   width: 45%;
   margin: 20rpx 0 0 20rpx;
 }
+
+.item image{
+  width: 320rpx;
+  height: 230rpx;
+  background: red;
+}

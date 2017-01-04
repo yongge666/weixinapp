@@ -22,7 +22,6 @@ var GetList = function (that) {
       var data = decodeURIComponent(decodeURIComponent(res.data.content));
       var jsonData = JSON.parse(data);
       var list = that.data.list;
-      console.log(jsonData.movie_list.length);
       for (var i = 0; i < jsonData.movie_list.length; i++) {
         list.push(jsonData.movie_list[i]);
       }
@@ -38,12 +37,7 @@ var GetList = function (that) {
 }
 Page({
   data: {
-    swiperImg: [
-      { pic: "http://avatar.graphmovie.com/boo/adv2/1567/1567_20161226154556_.jpg", url: '../../pages/detail/detail' },
-      { pic: "http://avatar.graphmovie.com/boo/adv2/1564/1564_20161222183502_.jpg", url: '../../pages/detail/detail' },
-      { pic: 'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg', url: '../../pages/detail/detail' },
-      { pic: "http://avatar.graphmovie.com/boo/adv2/584/584_20161223171655_.jpg", url: '../../pages/detail/detail' }
-    ],
+    swiperImg: [{"id":"1582","name":"热榜","pic":"http://avatar.graphmovie.com/boo/adv2/1582/1582_20170103154850_.jpg","subtitle":"","script":"%7B%22a%22%3A%221%22%2C%22v%22%3A%221%22%2C%22p%22%3A%7B%22nid%22%3A%221668%22%7D%7D","tag":"周二更新","tagcolor":"#6495ED"},{"id":"1579","name":"阿部宽专辑","pic":"http://avatar.graphmovie.com/boo/adv2/1579/1579_20161230171456_.jpg","subtitle":"","script":"%7B%22a%22%3A%224%22%2C%22v%22%3A%221%22%2C%22p%22%3A%7B%22tid%22%3A%22338%22%7D%7D","tag":"周一更新","tagcolor":"#00b9ff"},{"id":"584","name":"封神榜","pic":"http://avatar.graphmovie.com/boo/adv2/584/584_20161230163806_.jpg","subtitle":"","script":"%7B%22a%22%3A%2211%22%2C%22v%22%3A%221%22%2C%22p%22%3A%7B%22t%22%3A%22%25E5%259B%25BE%25E8%25A7%25A3%25E3%2581%25AE%25E5%25B0%2581%25E7%25A5%259E%25E6%25A6%259C%22%2C%22u%22%3A%22http%3A%2F%2Fh5.graphmovie.com%2Fappweb%2Frank.php%22%2C%22upvc%22%3A%221%22%2C%22s%22%3A%221%22%7D%7D","tag":"周五更新","tagcolor":"#000000"}],
     wallImg: [{ "id": "10", "name": "恐怖", "pic": "http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kongbu@2x.temp-8715-crush.png", "num": "0部" }, { "id": "2", "name": "喜剧", "pic": "http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_xiju@2x.png", "num": "0部" }, { "id": "4", "name": "爱情", "pic": "http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_aiqing@2x.png", "num": "0部" }, { "id": "13", "name": "悬疑", "pic": "http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_xuanyi-@2x.png", "num": "0部" }, { "id": "1", "name": "剧情", "pic": "http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_juqing@2x.png", "num": "0部" }, { "id": "16", "name": "科幻", "pic": "http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/pic_kehuan@2x.png", "num": "0部" }],
     hotTag: [{ "id": "5684", "name": "恐怖养成" }, { "id": "5690", "name": "热门首映" }, { "id": "5713", "name": "深度解读" }, { "id": "5816", "name": "撸片室" }, { "id": "5714", "name": "剧集精选" }, { "id": "5709", "name": "文艺几何" }, { "id": "5685", "name": "重口猎奇" }, { "id": "5712", "name": "开心麻花" }, { "id": "5711", "name": "暖心治愈" }, { "id": "5710", "name": "佳片有约" }, { "id": "5688", "name": "冷门小众" }, { "id": "5687", "name": "不可描述" }, { "id": "5105", "name": "LGBT" }, { "id": "5686", "name": "烧脑提神" }, { "id": "5689", "name": "豆瓣高分" }, { "id": "5691", "name": "烂片神解" }, { "id": "5692", "name": "世奇物语" }],
     list: [
@@ -68,11 +62,9 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        //console.log(res.data.message);
-        var data = decodeURIComponent(decodeURIComponent(res.data.content));
-        console.log(data);
+        var data = decodeURIComponent(res.data.content);
         var jsonData = JSON.parse(data);
-        console.log(jsonData);
+        console.info(jsonData)
         that.setData({
           swiperImg: jsonData.banner_list,
           wallImg: jsonData.genre_list,
@@ -95,7 +87,6 @@ Page({
       success: function (res) {
         var data = decodeURIComponent(decodeURIComponent(res.data.content));
         var jsonData = JSON.parse(data);
-        console.log(jsonData);
         that.setData({
           list: jsonData.movie_list
         })
@@ -143,11 +134,10 @@ Page({
     }
 
   },
-  goPlay: function (event) {
+  goDetail: function (event) {
     var id = event.currentTarget.dataset.id;
-    console.log(id)
     wx.navigateTo({
-      url: '../play/play?id=' + id,
+      url: '../detail/detail?id=' + id,
       success: function (res) {
         // success
       },
@@ -209,9 +199,10 @@ Page({
        "page_size": "10"
      }
      this.loadMovieData(POST_URL,movieList);
-     */
+    
     wx.redirectTo({
       url: 'index'
     })
+     */
   }
 })  

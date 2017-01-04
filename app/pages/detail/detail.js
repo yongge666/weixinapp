@@ -2,31 +2,6 @@
 //获取应用实例
  var app = getApp();
  const POST_URL = 'https://auth.graphmovies.com/gmapi/weapp/interface';
-// Page({
-//   data: {
-//     motto: 'Hello World',
-//     userInfo: {}
-//   },
-//   //事件处理函数
-//   bindViewTap: function() {
-//     wx.navigateTo({
-//       url: '../logs/logs'
-//     })
-//   },
-//   onLoad: function () {
-//     console.log('onLoad')
-//     console.log(222)
-//     var that = this
-//     //调用应用实例的方法获取全局数据
-//     app.getUserInfo(function(userInfo){
-//       //更新数据
-//       that.setData({
-//         userInfo:userInfo
-//       })
-//     })
-//   }
-// })
-//
 Page({    
   data: {    
     detail:{
@@ -45,20 +20,14 @@ Page({
   },    
   onLoad: function (options) {
     try{
-      var param = JSON.parse(options.id);
-      console.log(param);
-      var a = param.a;
-      var tid = param.p.tid;
-       console.log(tid);
-       if(tid){
+      var movieId = JSON.parse(options.id);
+      console.info(typeof movieId)
           //1.获取轮播详情页数据
-         var swiperData = {
-           "apiid": "we_app_index",
-           "params": "111",
-           "ip": "192.168.1.19"
+         var movieDetail = {
+           "apiid": "we_app_movie_info",
+           "movie_id": '55'
          };
-         this.loadData(POST_URL, swiperData);
-       }
+         this.loadData(POST_URL, movieDetail);
     }catch(ex){
       wx.showModal({
         title: '温馨提示',
@@ -83,7 +52,7 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        //console.log(res.data.message);
+        console.info(res);
         var data = decodeURIComponent(decodeURIComponent(res.data.content));
         var jsonData = JSON.parse(data);
         console.log(jsonData);
