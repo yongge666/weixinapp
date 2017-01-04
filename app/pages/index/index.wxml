@@ -24,7 +24,6 @@
 <view>
   <view class="pic-wall">
     <block wx:for="{{wallImg}}" wx:key="id" wx:for-index="i">
-      <swiper-item>
         <view wx:if="{{i == 0}}" class="imgbox wall-img-first wall-img-common" id="{{item.id}}" bindtap="goMovieType">
           <view class="mask-img wall-img-first wall-img-common">
             <view class="type-text">{{item.name}}</view>
@@ -46,7 +45,6 @@
           </view>
           <image src="{{item.pic}}" class="wall-img-normal wall-img-common" mode="aspectFill" />
         </view>
-      </swiper-item>
     </block>
   </view>
 </view>
@@ -59,9 +57,7 @@
   <view class="index-title">热门标签</view>
   <view class="tag-container">
   <block wx:for="{{hotTag}}" wx:key="id" wx:for-index="i">
-      <swiper-item>
         <view class="tag-btn" data-id="{{item.id}}" bindtap="goHotList">{{item.name}}</view>
-      </swiper-item>
     </block>
   </view>
 </view>
@@ -76,7 +72,6 @@
   <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" 
         class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
     <block wx:for="{{list}}" wx:key="id" wx:for-index="i">
-      <swiper-item>
         <view class="item" data-id="{{item.id}}" bindtap="goDetail">
           <image class="item-img" src="{{item.bpic}}" mode="aspectFill" />
           <view class="item-title">{{item.name}}</view>
@@ -101,7 +96,6 @@
             </view>
           </view>
         </view>
-      </swiper-item>
     </block>
     </scroll-view>
     <view class="body-view">

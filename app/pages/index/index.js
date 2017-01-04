@@ -9,18 +9,19 @@ var GetList = function (that) {
   that.setData({
     hidden: false
   });
+  //console.info('{"page": '+page+',"page_size": '+page_size+'}');
   wx.request({
     url: POST_URL,
     method: 'POST',
     data: {
       "apiid": "we_app_movie_chosen",
-      "page": page,
-      "page_size": page_size
+      "params": encodeURIComponent('{"page": '+page+',"page_size": '+page_size+'}')
     },
     success: function (res) {
-      //console.info(that.data.list);
+     
       var data = decodeURIComponent(decodeURIComponent(res.data.content));
       var jsonData = JSON.parse(data);
+       console.info(jsonData);
       var list = that.data.list;
       for (var i = 0; i < jsonData.movie_list.length; i++) {
         list.push(jsonData.movie_list[i]);
@@ -167,8 +168,7 @@ Page({
     this.loadData(POST_URL, swiperData);
     var movieList = {
       "apiid": "we_app_movie_chosen",
-      "page": "1",
-      "page_size": "10"
+      "params": encodeURIComponent('{"page": "1","page_size": "10"}')
     }
     this.loadMovieData(POST_URL, movieList);
     //   这里要非常注意，微信的scroll-view必须要设置高度才能监听滚动事件，所以，需要在页面的onLoad事件中给scroll-view的高度赋值

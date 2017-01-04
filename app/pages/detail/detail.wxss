@@ -91,7 +91,7 @@ image{
 
 }
 .author-right{
-  width: 40%;
+  width: 70%;
   line-height: 40rpx;
   top: 30rpx;
   left: 110rpx;
@@ -103,6 +103,7 @@ image{
   color: #282832;
 }
 .total{
+  width: 70%;
   color: #98989b;
 }
 .chr{
