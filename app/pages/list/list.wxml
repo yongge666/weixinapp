@@ -1,0 +1,20 @@
+<!--list.wxml-->
+<view class="container">
+  <view class="content">
+    <view class="item">
+    <image src="http://avatar.graphmovie.com/boo/movies/12042/12042_20161230152256_b.jpg" mode="aspectFill" />
+    <view class="info">
+      <view class="title"></view>
+      <view class="intro"></view>
+      <view class="type"></view>
+      <view class="footer">
+        <view class="played"><image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_eye@2x.png" mode="aspectFill" /></view>
+         <view calss="liked"><image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_like@2x.png" mode="aspectFill" /></view>
+      </view>
+    </view>
+    </view>
+     <view class="item"><image src="http://avatar.graphmovie.com/boo/movies/12042/12042_20161230152256_b.jpg" mode="aspectFill" /></view>
+      <view class="item"><image src="http://avatar.graphmovie.com/boo/movies/12042/12042_20161230152256_b.jpg" mode="aspectFill" /></view>
+       <view class="item"><image src="http://avatar.graphmovie.com/boo/movies/12042/12042_20161230152256_b.jpg" mode="aspectFill" /></view>
+  </view>
+</view>

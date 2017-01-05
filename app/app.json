@@ -9,7 +9,8 @@
     "pages/play/play",
     "pages/rank/rank",
     "pages/topic/topic",
-    "pages/grapic/grapic"
+    "pages/grapic/grapic",
+    "pages/list/list"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -90,5 +90,4 @@ page{
 .item image{
   width: 320rpx;
   height: 230rpx;
-  background: red;
 }

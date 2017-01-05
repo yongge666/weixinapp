@@ -1,4 +1,4 @@
-//index.js
+/*detail.js*/
 //获取应用实例
  var app = getApp();
  const POST_URL = 'https://auth.graphmovies.com/gmapi/weapp/interface';

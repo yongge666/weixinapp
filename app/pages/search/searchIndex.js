@@ -1,10 +1,39 @@
 // pages/search/searchIndex.js
+const POST_URL = 'https://auth.graphmovies.com/gmapi/weapp/interface';
 Page({
   data:{
-     display: 'show'
+     display: 'show',
+     hotSearch:{}
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    var hotParam = {
+      "apiid": "we_app_search_hot",
+      "params": encodeURIComponent('{"page_size":5}')
+    }
+    this.loadData(POST_URL,hotParam);
+  },
+  loadData:function(url,data){
+    var that = this
+    wx.request({
+      method: 'POST',
+      url: url,
+      data: data,
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.info(res);
+        var data = decodeURIComponent(res.data.content);
+        var jsonData = JSON.parse(data);
+        console.log(jsonData)
+        that.setData({
+          detail: jsonData
+        })
+
+      }
+
+    })
   },
    getSearchWords:function(e){
      this.setData({

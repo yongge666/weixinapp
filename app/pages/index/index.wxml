@@ -25,22 +25,22 @@
   <view>
     <view class="pic-wall">
       <block wx:for="{{wallImg}}" wx:key="id" wx:for-index="i">
-        <view wx:if="{{i == 0}}" class="imgbox wall-img-first wall-img-common" id="{{item.id}}" bindtap="goMovieType">
-          <view class="mask-img wall-img-first wall-img-common">
+        <view wx:if="{{i == 0}}" class="imgbox wall-img-first wall-img-common">
+          <view data-id="{{item.id}}" data-type="1" bindtap="goMovieType" class="mask-img wall-img-first wall-img-common">
             <view class="type-text">{{item.name}}</view>
             <view class="num-text">{{item.num}}部</view>
           </view>
           <image src="{{item.pic}}" class="wall-img-first wall-img-common" mode="aspectFill" />
         </view>
         <view class="imgbox wall-img-last wall-img-common" wx:elif="{{i == wallImgLen-1}}">
-          <view class="mask-img wall-img-last wall-img-common">
+          <view data-id="{{item.id}}" data-type="1" bindtap="goMovieType" class="mask-img wall-img-last wall-img-common">
             <view class="type-text">{{item.name}}</view>
             <view class="num-text">{{item.num}}部</view>
           </view>
           <image src="{{item.pic}}" class="wall-img-last wall-img-common" mode="aspectFill" />
         </view>
         <view class="imgbox wall-img-normal wall-img-common" wx:else>
-          <view class="mask-img wall-img-normal wall-img-common">
+          <view data-id="{{item.id}}" data-type="1" bindtap="goMovieType" class="mask-img wall-img-normal wall-img-common">
             <view class="type-text">{{item.name}}</view>
             <view class="num-text">{{item.num}}部</view>
           </view>
@@ -58,7 +58,7 @@
     <view class="index-title">热门标签</view>
     <view class="tag-container">
       <block wx:for="{{hotTag}}" wx:key="id" wx:for-index="i">
-        <view class="tag-btn" data-id="{{item.id}}" bindtap="goHotList">{{item.name}}</view>
+        <view class="tag-btn" data-id="{{item.id}}" data-type="2" bindtap="goHotList">{{item.name}}</view>
       </block>
     </view>
   </view>

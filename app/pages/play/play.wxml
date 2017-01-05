@@ -10,7 +10,7 @@
     <view class="container">
         <view class="item" wx:key="id" wx:for="{{movie}}">
             <image class="img" src="{{item.image}}"></image>
-            <view class="intro">{{item.id}}{{item.intro}}</view>
+            <view class="intro">{{item.intro}}</view>
             <view class="hr"></view>
         </view>
     

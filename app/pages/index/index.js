@@ -152,11 +152,18 @@ Page({
       }
     })
   },
-  goHotList: function (option) {
-    var id = option.currentTarget.dataset.id;
-  },
   goMovieType: function (option) {
     var id = option.currentTarget.dataset.id;
+    var type = option.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: '../list/list?id=' + id+'&type='+type
+    })
+  },
+  goHotList: function (option) {
+    var id = option.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../list/list?id=' + id+'&type='+type
+    })
   },
   onLoad: function () {
     //数据初始化

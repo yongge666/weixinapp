@@ -1,0 +1,48 @@
+/**list.wxss**/
+image{
+  display: inline-block;
+  max-width: 100%;
+}
+.container{
+  width: 100%;
+}
+.content{
+  width: 100%;
+}
+.item{
+  width: 40%;
+  display: inline-block;
+  margin: 0 0 20rpx 50rpx;
+}
+.item image{
+  width: 360rpx;
+  height: 258.75rpx;
+}
+.info{
+
+}
+.title{
+  color: #171717;
+}
+.intro{
+ color: #919191;
+}
+.type{
+  color: #C3C3C5;
+}
+.footer{
+  width: 100%;
+  color: #848484;
+}
+.played{
+  width: 50%;
+  display: inline-block;
+}
+.liked{
+  width: 50%;
+  display: inline-block;
+}
+.item-icon{
+  width: 11rpx;
+  height: 10rpx;
+}

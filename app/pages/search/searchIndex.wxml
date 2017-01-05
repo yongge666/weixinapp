@@ -8,7 +8,9 @@
 <view class="{{display}}">
   <view class="title">热门搜索</view>
   <view class="tag-container">
-    <view class="tag-btn">热门标签a</view>
+    <block wx:for="{{hotSearch}}" wx:key="id" wx:for-index="i">
+      <view class="tag-btn">{{item}}</view>
+    </block>
     <view class="tag-btn">单身狗必看</view>
     <view class="tag-btn">逗比</view>
     <view class="tag-btn">经典</view>
@@ -19,6 +21,6 @@
 </view>
 <view class="list">
   <view class="item">
-  <image src="http://avatar.graphmovie.com/boo/movies/12042/12042_20161230152256_b.jpg" mode="aspectFill" ></image>
+    <image src="http://avatar.graphmovie.com/boo/movies/12042/12042_20161230152256_b.jpg" mode="aspectFill" />
   </view>
 </view>
