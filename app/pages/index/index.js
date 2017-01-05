@@ -5,37 +5,6 @@ var app = getApp();
 var page = 1;
 var page_size = 10;
 // 获取数据的方法
-var GetList = function (that) {
-  that.setData({
-    hidden: false
-  });
-  //console.info('{"page": '+page+',"page_size": '+page_size+'}');
-  wx.request({
-    url: POST_URL,
-    method: 'POST',
-    data: {
-      "apiid": "we_app_movie_chosen",
-      "params": encodeURIComponent('{"page": '+page+',"page_size": '+page_size+'}')
-    },
-    success: function (res) {
-     
-      var data = decodeURIComponent(decodeURIComponent(res.data.content));
-      var jsonData = JSON.parse(data);
-       console.info(jsonData);
-      var list = that.data.list;
-      for (var i = 0; i < jsonData.movie_list.length; i++) {
-        list.push(jsonData.movie_list[i]);
-      }
-      that.setData({
-        list: list
-      });
-      page++;
-      that.setData({
-        hidden: true
-      });
-    }
-  });
-}
 Page({
   data: {
     swiperImg: [{"id":"1582","name":"热榜","pic":"http://avatar.graphmovie.com/boo/adv2/1582/1582_20170103154850_.jpg","subtitle":"","script":"%7B%22a%22%3A%221%22%2C%22v%22%3A%221%22%2C%22p%22%3A%7B%22nid%22%3A%221668%22%7D%7D","tag":"周二更新","tagcolor":"#6495ED"},{"id":"1579","name":"阿部宽专辑","pic":"http://avatar.graphmovie.com/boo/adv2/1579/1579_20161230171456_.jpg","subtitle":"","script":"%7B%22a%22%3A%224%22%2C%22v%22%3A%221%22%2C%22p%22%3A%7B%22tid%22%3A%22338%22%7D%7D","tag":"周一更新","tagcolor":"#00b9ff"},{"id":"584","name":"封神榜","pic":"http://avatar.graphmovie.com/boo/adv2/584/584_20161230163806_.jpg","subtitle":"","script":"%7B%22a%22%3A%2211%22%2C%22v%22%3A%221%22%2C%22p%22%3A%7B%22t%22%3A%22%25E5%259B%25BE%25E8%25A7%25A3%25E3%2581%25AE%25E5%25B0%2581%25E7%25A5%259E%25E6%25A6%259C%22%2C%22u%22%3A%22http%3A%2F%2Fh5.graphmovie.com%2Fappweb%2Frank.php%22%2C%22upvc%22%3A%221%22%2C%22s%22%3A%221%22%7D%7D","tag":"周五更新","tagcolor":"#000000"}],
@@ -88,18 +57,55 @@ Page({
       success: function (res) {
         var data = decodeURIComponent(decodeURIComponent(res.data.content));
         var jsonData = JSON.parse(data);
+        console.info(jsonData.movie_list);
         that.setData({
           list: jsonData.movie_list
         })
 
+      },
+      fail:function(e){
+        console.log(e)
       }
 
     })
   },
-  loadMore: function (event) {
-    var id = event.currentTarget.dataset.id;
-    console.log(id)
-
+  loadMore: function (that) {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    // that.setData({
+    //   hidden: false
+    // });
+    
+    //console.info('{"page": '+page+',"page_size": '+page_size+'}');
+    wx.request({
+      url: POST_URL,
+      method: 'POST',
+      data: {
+        "apiid": "we_app_movie_chosen",
+        "params": encodeURIComponent('{"page": '+page+',"page_size": '+page_size+'}')
+      },
+      success: function (res) {
+        var data = decodeURIComponent(decodeURIComponent(res.data.content));
+        var jsonData = JSON.parse(data);
+        //console.info(jsonData);
+        var list = that.data.list;
+        for (var i = 0; i < jsonData.movie_list.length; i++) {
+          list.push(jsonData.movie_list[i]);
+        }
+        console.info(list);
+        that.setData({
+          list: list
+        });
+        page++;
+        // that.setData({
+        //   hidden: true
+        // });
+        wx.hideNavigationBarLoading() //完成停止加载
+      },
+        fail:function(e){
+          console.log(e)
+        }
+      
+    });
   },
   goSearch: function () {
     wx.navigateTo({
@@ -156,6 +162,7 @@ Page({
   onLoad: function () {
     //数据初始化
     var that = this;
+    wx.showNavigationBarLoading()
     var wallImgLen = that.data.wallImg.length;
     that.setData({
       wallImgLen: wallImgLen
@@ -168,7 +175,7 @@ Page({
     this.loadData(POST_URL, swiperData);
     var movieList = {
       "apiid": "we_app_movie_chosen",
-      "params": encodeURIComponent('{"page": "1","page_size": "10"}')
+      "params": encodeURIComponent('{"page": "0","page_size": "10"}')
     }
     this.loadMovieData(POST_URL, movieList);
     //   这里要非常注意，微信的scroll-view必须要设置高度才能监听滚动事件，所以，需要在页面的onLoad事件中给scroll-view的高度赋值
@@ -179,11 +186,28 @@ Page({
         });
       }
     });
+     
+  },
+  onReady:function(){
+    wx.hideNavigationBarLoading();
   },
   bindDownLoad: function () {
     //   该方法绑定了页面滑动到底部的事件
     var that = this;
-    GetList(that);
+    this.loadMore(that);
+  },
+  onPullDownRefresh:function(){
+     //下拉触发
+      var movieList = {
+      "apiid": "we_app_movie_chosen",
+      "params": encodeURIComponent('{"page": "0","page_size": "10"}')
+    }
+    this.loadMovieData(POST_URL, movieList);
+     
+  },
+  onReachBottom:function(){
+    //上拉触发
+    
   },
   scroll: function (event) {
     //   该方法绑定了页面滚动时的事件，我这里记录了当前的position.y的值,为了请求数据之后把页面定位到这里来。
@@ -193,13 +217,7 @@ Page({
   },
   refresh: function (event) {
     //   该方法绑定了页面滑动到顶部的事件，然后做上拉刷新
-    /* var movieList = {
-       "apiid":"we_app_movie_chosen",
-       "page": "1",
-       "page_size": "10"
-     }
-     this.loadMovieData(POST_URL,movieList);
-    
+    /*
     wx.redirectTo({
       url: 'index'
     })

@@ -71,7 +71,7 @@
   <view class="selected-container">
   <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" 
         class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
-    <block wx:for="{{list}}" wx:key="id" wx:for-index="i">
+    <block wx:for="{{list}}" wx:key="{{item.id}}" wx:for-index="i">
         <view class="item" data-id="{{item.id}}" bindtap="goDetail">
           <image class="item-img" src="{{item.bpic}}" mode="aspectFill" />
           <view class="item-title">{{item.name}}</view>
