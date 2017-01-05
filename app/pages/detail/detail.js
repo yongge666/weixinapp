@@ -31,8 +31,10 @@ Page({
   },
   goPlay:function(options){
     var id = options.currentTarget.dataset.id;
+    var title = options.currentTarget.dataset.title;
+    var image = options.currentTarget.dataset.image;
      wx.navigateTo({
-      url: '../play/play?id='+id
+      url: '../play/play?id='+id+'&title='+title+'&image='+image
     })
   },
    loadData:function(url,data){

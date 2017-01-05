@@ -34,7 +34,7 @@ Page({
       success: function (res) {
         var data = decodeURIComponent(res.data.content);
         var jsonData = JSON.parse(data);
-        console.info(jsonData)
+        //console.info(jsonData)
         that.setData({
           swiperImg: jsonData.banner_list,
           wallImg: jsonData.genre_list,
@@ -57,7 +57,7 @@ Page({
       success: function (res) {
         var data = decodeURIComponent(decodeURIComponent(res.data.content));
         var jsonData = JSON.parse(data);
-        console.info(jsonData.movie_list);
+        //console.info(jsonData.movie_list);
         that.setData({
           list: jsonData.movie_list
         })
@@ -91,7 +91,6 @@ Page({
         for (var i = 0; i < jsonData.movie_list.length; i++) {
           list.push(jsonData.movie_list[i]);
         }
-        console.info(list);
         that.setData({
           list: list
         });

@@ -2,28 +2,29 @@
 <!--index.wxml-->
 
 <!--swiper开始-->
-<view class="swiper-main">
-  <view class="search" bindtap="goSearch">
-    <view class="search-input" placeholder="搜索关键词" disabled="true"></view>
-    <image class="search-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/btn_search@2x.png" mode="aspectFill" />
+<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+  <view class="swiper-main">
+    <view class="search" bindtap="goSearch">
+      <view class="search-input" placeholder="搜索关键词" disabled="true"></view>
+      <image class="search-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/btn_search@2x.png" mode="aspectFill" />
+    </view>
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+      <block wx:for="{{swiperImg}}" wx:key="id" wx:for-index="i">
+        <swiper-item>
+          <image src="{{item.pic}}" data-page="{{item.script}}" bindtap="goBannerDetail" class="slide-image" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
-  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
-    <block wx:for="{{swiperImg}}" wx:key="id" wx:for-index="i">
-      <swiper-item>
-        <image src="{{item.pic}}" data-page="{{item.script}}" bindtap="goBannerDetail" class="slide-image" mode="aspectFill" />
-      </swiper-item>
-    </block>
-  </swiper>
-</view>
 
-<!--swiper结束-->
-<view class="line"></view>
+  <!--swiper结束-->
+  <view class="line"></view>
 
-<!--照片墙开始-->
-<view class="index-title">电影类型</view>
-<view>
-  <view class="pic-wall">
-    <block wx:for="{{wallImg}}" wx:key="id" wx:for-index="i">
+  <!--照片墙开始-->
+  <view class="index-title">电影类型</view>
+  <view>
+    <view class="pic-wall">
+      <block wx:for="{{wallImg}}" wx:key="id" wx:for-index="i">
         <view wx:if="{{i == 0}}" class="imgbox wall-img-first wall-img-common" id="{{item.id}}" bindtap="goMovieType">
           <view class="mask-img wall-img-first wall-img-common">
             <view class="type-text">{{item.name}}</view>
@@ -45,33 +46,31 @@
           </view>
           <image src="{{item.pic}}" class="wall-img-normal wall-img-common" mode="aspectFill" />
         </view>
-    </block>
+      </block>
+    </view>
   </view>
-</view>
 
-<!--照片墙结束-->
-<view class="line"></view>
+  <!--照片墙结束-->
+  <view class="line"></view>
 
-<!--热门标签开始-->
-<view class="hot-tag">
-  <view class="index-title">热门标签</view>
-  <view class="tag-container">
-  <block wx:for="{{hotTag}}" wx:key="id" wx:for-index="i">
+  <!--热门标签开始-->
+  <view class="hot-tag">
+    <view class="index-title">热门标签</view>
+    <view class="tag-container">
+      <block wx:for="{{hotTag}}" wx:key="id" wx:for-index="i">
         <view class="tag-btn" data-id="{{item.id}}" bindtap="goHotList">{{item.name}}</view>
-    </block>
+      </block>
+    </view>
   </view>
-</view>
 
-<!--热门标签结束-->
-<view class="line"></view>
+  <!--热门标签结束-->
+  <view class="line"></view>
 
-<!--图解精选开始-->
-<view class="selected-movie">
-  <view class="index-title">图解精选</view>
-  <view class="selected-container">
-  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" 
-        class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
-    <block wx:for="{{list}}" wx:key="{{item.id}}" wx:for-index="i">
+  <!--图解精选开始-->
+  <view class="selected-movie">
+    <view class="index-title">图解精选</view>
+    <view class="selected-container">
+      <block wx:for="{{list}}" wx:key="{{item.id}}" wx:for-index="i">
         <view class="item" data-id="{{item.id}}" bindtap="goDetail">
           <image class="item-img" src="{{item.bpic}}" mode="aspectFill" />
           <view class="item-title">{{item.name}}</view>
@@ -79,11 +78,10 @@
           <view class="item-intro">{{item.tag}}</view>
           <view class="item-footer">
             <view class="item-footer-left item-intro">
-            <image class="item-avatar" src="{{item.author.avatar}}" mode="aspectFill" />
+              <image class="item-avatar" src="{{item.author.avatar}}" mode="aspectFill" />
               <view class="uname">
                 {{item.author.name}}
               </view>
-              
             </view>
             <view class="item-line">|</view>
             <view class="item-footer-right item-intro">
@@ -96,14 +94,14 @@
             </view>
           </view>
         </view>
-    </block>
-    </scroll-view>
-    <view class="body-view">
+      </block>
+      <view class="body-view">
         <loading hidden="{{hidden}}" bindchange="loadingChange">
-            加载中...
+          加载中...
         </loading>
+      </view>
     </view>
   </view>
-</view>
+</scroll-view>
 
 <!--图解精选结束-->

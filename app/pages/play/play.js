@@ -3,57 +3,25 @@
 //var app = getApp()
 const POST_URL = 'https://auth.graphmovies.com/gmapi/weapp/interface';
 var page = 0;
-var page_size = 20;
-var sort = "last";
-var is_easy = 0;
-var lange_id = 0;
-var pos_id = 0;
-var unlearn = 0;
-// 获取数据的方法
-var GetList = function (that) {
-    that.setData({
-        hidden: false
-    });
-    wx.request({
-        url: POST_URL,
-        method: 'POST',
-        data: {
-            "apiid": "we_app_movie_script",
-            "params": encodeURIComponent('{"movie_id": ' + movieId + '}')
-        },
-        success: function (res) {
-            //console.info(that.data.list);
-            var list = that.data.list;
-            for (var i = 0; i < res.data.list.length; i++) {
-                list.push(res.data.list[i]);
-            }
-            that.setData({
-                list: list
-            });
-            page++;
-            that.setData({
-                hidden: true
-            });
-        }
-    });
+var page_size = 10;
+var movieId = '';
+var data = {};
+var title='';
+var img='';
+function isEmptyObject(e) {
+    var t;
+    for (t in e)
+        return !1;
+    return !0
 }
 Page({
     data: {
-        detail: {
-            imgurl: 'http://7xi5ca.com2.z0.glb.qiniucdn.com/cd491d18eeb6d8922d9edeaf06502e7e',
-            title: '瑞士军刀男',
-            subTitle: '生命力在"丑陋"的东西里面',
-            desc: '一个小孩,相貌丑陋,说话口吃,而且因为疾病导致左脸局部麻痹,嘴角畸形,讲话时嘴巴总是歪向一边,还有一只耳朵失聪.为了纠正自己口吃,这孩子模仿古代一位有名的演说家,嘴里含着小石子讲话.看着嘴巴和舌头被舌头磨烂的儿子,母亲心疼的抱着他流泪说：“不要练了,妈妈一辈子陪着你.”他说：“妈妈,书上说,每一只漂亮的蝴蝶,都是冲破束缚自己的茧之后才变成的,我要做一只美丽的蝴蝶.”',
-            director: '李一谋',
-            actor: '李小龙/刘德华',
-            type: '剧情/喜剧/精选',
-            date: '2015-01-22',
-            score: 98,
-            intro: 'A 增加 上传代码时样式自动补全选项，默认开启，开发者可以主动关闭 详A 增加 开发环境不校验请求安全域名以及 TLS 版本选项，默认关闭，开发者可以主动开启 详情 增加 Page 页面脚本错误的提示信息A 增加 同客户的保持一致，校验 wx.request、wx.downloadFile、wx.uploadFile'
-
-        }
+        movie: {},
+        hidden: true
     },
     onLoad: function (options) {
+        //wx.clearStorage();
+        wx.showNavigationBarLoading()
         var that = this;
         wx.getSystemInfo({
             success: function (res) {
@@ -63,19 +31,37 @@ Page({
             }
         });
         //获取播放数据
-        var movieId = options.id;
-        var data = wx.getStorageSync('movie_play_' + movieId);
-        if (data) {
-            console.log(data);
-        } else {
+        movieId = options.id;
+        title = options.id;
+        img = options.image;
+        var mdata = {};
+        data = wx.getStorageSync('movie_play_' + movieId);
+        if (isEmptyObject(data)) {
             var movieData = {
                 "apiid": "we_app_movie_script",
                 "params": encodeURIComponent('{"movie_id": ' + movieId + '}')
             }
+            //存缓存
             this.loadData(POST_URL, movieData, movieId);
+        } else {
+            //取取10条
+            for (var value in data) {
+                if (value <= 9) {
+                    mdata[value] = data[value];
+                }
+
+            }
+            that.setData({
+                title: title,
+                image: img,
+                movie: mdata
+            });
         }
 
 
+    },
+    onReady: function () {
+        wx.hideNavigationBarLoading();
     },
     loadData: function (url, data, movieId) {
         var that = this
@@ -90,9 +76,22 @@ Page({
                 if (res.data.status == 1) {
                     var data = decodeURIComponent(res.data.content);
                     var jsonData = JSON.parse(data);
-                    console.info(jsonData)
                     //存缓存
-                    wx.setStorageSync('movie_play_' + movieId, jsonData.scripts)
+                    wx.setStorageSync('movie_play_' + movieId, jsonData.scripts);
+                    data = jsonData.scripts;
+                    //取取10条
+                    var mdata={};
+                    for (var value in data) {
+                        if (value <= 9) {
+                            mdata[value] = data[value];
+                        }
+
+                    }
+                    that.setData({
+                        title: title,
+                        image: img,
+                        movie: mdata
+                    });
                 } else {
                     wx.showModal({
                         title: '温馨提示',
@@ -112,10 +111,36 @@ Page({
 
         })
     },
+    loadMore: function (that) {
+        wx.showNavigationBarLoading();
+        var list = that.data.movie;
+        if (isEmptyObject(data)) {
+            var movieData = {
+                "apiid": "we_app_movie_script",
+                "params": encodeURIComponent('{"movie_id": ' + movieId + '}')
+            }
+            this.loadData(POST_URL, movieData, movieId);
+            //从缓存获取数据
+            if(isEmptyObject(data)){
+                data = wx.getStorageSync('movie_play_' + movieId);
+            }
+            
+        }
+        var start = page * page_size;
+        var end = start + page_size;
+        for (var i = start; i < end; i++) {
+            list[i] = data[i];
+        }
+        that.setData({
+            movie: list
+        });
+        page++;
+        wx.hideNavigationBarLoading();
+    },
     bindDownLoad: function () {
         //   该方法绑定了页面滑动到底部的事件
         var that = this;
-        GetList(that);
+        this.loadMore(that);
     },
     scroll: function (event) {
         //   该方法绑定了页面滚动时的事件，我这里记录了当前的position.y的值,为了请求数据之后把页面定位到这里来。
@@ -125,11 +150,12 @@ Page({
     },
     refresh: function (event) {
         //   该方法绑定了页面滑动到顶部的事件，然后做上拉刷新
+        var that = this;
         page = 0;
         this.setData({
             list: [],
             scrollTop: 0
         });
-        GetList(this)
+        this.loadMore(that);
     }
 })  

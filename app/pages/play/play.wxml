@@ -1,19 +1,19 @@
 <!--play.wxml-->
+ <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" 
+        class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
   <view class="head-img">
-    <image src="{{detail.imgurl}}" mode="aspectFill" />
+    <image src="{{image}}" mode="aspectFill" />
   </view>
-  <view class="title">《405谋杀案》</view>
+  <view class="title">《{{title}}》</view>
   <view class="hr"></view>
   <view class="content">
     <view class="container">
-    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" 
-        class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
-        <view class="item" wx:for="{{list}}">
-            <image class="img" src="{{item.pic_url}}"></image>
-            <view class="intro">{{detail.intro}}</view>
+        <view class="item" wx:key="id" wx:for="{{movie}}">
+            <image class="img" src="{{item.image}}"></image>
+            <view class="intro">{{item.id}}{{item.intro}}</view>
             <view class="hr"></view>
         </view>
-    </scroll-view>
+    
     <view class="body-view">
         <loading hidden="{{hidden}}" bindchange="loadingChange">
             加载中...
@@ -24,3 +24,4 @@
     <view class="intro">{{detail.intro}}</view>
     <view class="hr"></view>-->
   </view>
+  </scroll-view>
