@@ -6,8 +6,8 @@ var page = 0;
 var page_size = 10;
 var movieId = '';
 var data = {};
-var title='';
-var img='';
+var title = '';
+var img = '';
 function isEmptyObject(e) {
     var t;
     for (t in e)
@@ -21,6 +21,12 @@ Page({
     },
     onLoad: function (options) {
         //wx.clearStorage();
+        movieId = options.id;
+        title = options.title;
+        img = options.image;
+        wx.setNavigationBarTitle({
+            title: '正在播放《' + title + '》'
+        })
         wx.showNavigationBarLoading()
         var that = this;
         wx.getSystemInfo({
@@ -31,9 +37,6 @@ Page({
             }
         });
         //获取播放数据
-        movieId = options.id;
-        title = options.id;
-        img = options.image;
         var mdata = {};
         data = wx.getStorageSync('movie_play_' + movieId);
         if (isEmptyObject(data)) {
@@ -80,7 +83,7 @@ Page({
                     wx.setStorageSync('movie_play_' + movieId, jsonData.scripts);
                     data = jsonData.scripts;
                     //取取10条
-                    var mdata={};
+                    var mdata = {};
                     for (var value in data) {
                         if (value <= 9) {
                             mdata[value] = data[value];
@@ -121,10 +124,10 @@ Page({
             }
             this.loadData(POST_URL, movieData, movieId);
             //从缓存获取数据
-            if(isEmptyObject(data)){
+            if (isEmptyObject(data)) {
                 data = wx.getStorageSync('movie_play_' + movieId);
             }
-            
+
         }
         var start = page * page_size;
         var end = start + page_size;

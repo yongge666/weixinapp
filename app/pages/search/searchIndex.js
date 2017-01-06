@@ -6,6 +6,10 @@ Page({
      hotSearch:{}
   },
   onLoad:function(options){
+    wx.setNavigationBarTitle({
+      title: '图解搜索'
+    })
+    wx.showNavigationBarLoading();
     // 页面初始化 options为页面跳转所带来的参数
     var hotParam = {
       "apiid": "we_app_search_hot",
@@ -28,7 +32,7 @@ Page({
         var jsonData = JSON.parse(data);
         console.log(jsonData)
         that.setData({
-          detail: jsonData
+          hotSearch: jsonData.keywords
         })
 
       }
@@ -42,17 +46,20 @@ Page({
   },
   doSearch:function(e){
       var searchWords = e.currentTarget.dataset.inputvalue;
-      if(searchWords.length==0){
+      if(!searchWords){
         return false;
       }
       wx.navigateTo({
         url: '../search/searchResult?searchWords='+searchWords,
-        success: function(res){
-          // success
-        },
-        complete: function() {
-          // complete
-        }
+      })
+  },
+  goSearch:function(options){
+    var keywords=options.currentTarget.dataset.text;
+    if(!keywords){
+      return false;
+    }
+     wx.navigateTo({
+        url: '../search/searchResult?searchWords='+keywords,
       })
   },
   focus:function(){
@@ -68,8 +75,8 @@ Page({
   goIndex:function(){
     wx.navigateBack();
   },
-  onReady:function(){
-    // 页面渲染完成
+  onReady: function () {
+    wx.hideNavigationBarLoading();
   },
   onShow:function(){
     // 页面显示

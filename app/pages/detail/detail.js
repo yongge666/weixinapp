@@ -7,6 +7,10 @@ Page({
     detail:{}
   },    
   onLoad: function (options) {
+     wx.setNavigationBarTitle({
+        title: '图解详情'
+      })
+    wx.showNavigationBarLoading();
     try{
       var movieId = options.id;
           //1.获取轮播详情页数据
@@ -28,6 +32,9 @@ Page({
         }
       })
     }
+  },
+   onReady:function(){
+    wx.hideNavigationBarLoading();
   },
   goPlay:function(options){
     var id = options.currentTarget.dataset.id;

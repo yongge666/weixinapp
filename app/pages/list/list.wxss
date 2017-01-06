@@ -8,41 +8,77 @@ image{
 }
 .content{
   width: 100%;
+  margin-top:-190rpx;
 }
 .item{
-  width: 40%;
+  width: 46%;
   display: inline-block;
-  margin: 0 0 20rpx 50rpx;
+  position: relative;
+  margin: 0 0 20rpx 20rpx;
+  font-size: 20rpx;
 }
-.item image{
+.header{
+  height: 23rpx;
+  line-height: 23rpx;
+  width:100%;
+  position: absolute;
+  bottom: 98rpx;
+  left: 4%;
+  color: #FDF1F2;
+  /*background: red;*/
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.header view{
+  box-sizing: border-box;
+  display: inline-block;
+  padding-right: 26rpx;
+}
+.header image{
+  display: inline-block;
+}
+.item-icon{
+  width: 23rpx;
+  height: 23rpx;
+  display: inline-block;
+  padding-right: 6rpx;
+}
+.main-img{
   width: 360rpx;
   height: 258.75rpx;
 }
-.info{
-
-}
 .title{
+  width: 100%;
+  height: 36rpx;
+  line-height: 36rpx;
+  overflow: hidden;
+  margin-top: 10rpx;
+  font-size: 28rpx;
   color: #171717;
+  font-weight: bold;
 }
 .intro{
  color: #919191;
 }
 .type{
+  width: 170rpx;
+  display: inline-block;
+  color: #C3C3C5;
+  padding-right: 20%;
+}
+.score{
+  width: 100rpx;
+  box-sizing: border-box;
+  display: inline-block;
   color: #C3C3C5;
 }
 .footer{
   width: 100%;
+  height: 30rpx;
+  line-height: 30rpx;
+  overflow: hidden;
+  margin-top: 10rpx;
   color: #848484;
-}
-.played{
-  width: 50%;
-  display: inline-block;
-}
-.liked{
-  width: 50%;
-  display: inline-block;
-}
-.item-icon{
-  width: 11rpx;
-  height: 10rpx;
+  font-size: 24rpx;
+  box-sizing:border-box;
 }

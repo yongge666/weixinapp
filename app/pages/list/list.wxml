@@ -1,20 +1,31 @@
+
 <!--list.wxml-->
-<view class="container">
-  <view class="content">
-    <view class="item">
-    <image src="http://avatar.graphmovie.com/boo/movies/12042/12042_20161230152256_b.jpg" mode="aspectFill" />
-    <view class="info">
-      <view class="title"></view>
-      <view class="intro"></view>
-      <view class="type"></view>
-      <view class="footer">
-        <view class="played"><image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_eye@2x.png" mode="aspectFill" /></view>
-         <view calss="liked"><image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/icon_like@2x.png" mode="aspectFill" /></view>
-      </view>
+<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+  <view class="container">
+    <view class="content">
+      <block wx:for="{{movies}}" wx:key="id" wx:for-index="i">
+        <view class="item">
+          <image class="main-img" src="{{item.spic}}" mode="aspectFill" />
+          <view class="header">
+            <view class="user">
+              <image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/index_icon_avatar_small@2x.png" mode="aspectFill" />{{item.author.name}}
+            </view>
+            <view class="played">
+              <image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/index_icon_read@2x.png" mode="aspectFill" />{{item.stat_played}}
+            </view>
+            <view calss="liked">
+              <image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/index_icon_like@2x.png" mode="aspectFill" />{{item.stat_liked}}
+            </view>
+          </view>
+          <view class="info">
+            <view class="title">{{item.name}}</view>
+            <view class="footer">
+              <view class="type">{{item.tag}}</view>
+              <view class="score">评分{{item.gm_score}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
     </view>
-    </view>
-     <view class="item"><image src="http://avatar.graphmovie.com/boo/movies/12042/12042_20161230152256_b.jpg" mode="aspectFill" /></view>
-      <view class="item"><image src="http://avatar.graphmovie.com/boo/movies/12042/12042_20161230152256_b.jpg" mode="aspectFill" /></view>
-       <view class="item"><image src="http://avatar.graphmovie.com/boo/movies/12042/12042_20161230152256_b.jpg" mode="aspectFill" /></view>
   </view>
-</view>
+</scroll-view>

@@ -123,9 +123,21 @@ Page({
     console.log(param);
     var a = param.a;
     console.log(a);
-    if (a == 2) {
+    if(a==1){
+      //新闻
+      var nid = param.p.nid;
+      if(!nid){
+        return false;
+      }
+    }else if (a == 2) {
       //图解
       var mid = param.p.mid;
+      if(!mid){
+        return false;
+      }
+       wx.navigateTo({
+        url: '../detail/detail?id='+mid,
+      })
     } else if (a == 3) {
       //广告
       var aid = param.p.aid;
@@ -144,12 +156,6 @@ Page({
     var id = event.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../detail/detail?id=' + id,
-      success: function (res) {
-        // success
-      },
-      complete: function () {
-        // complete
-      }
     })
   },
   goMovieType: function (option) {
@@ -161,6 +167,7 @@ Page({
   },
   goHotList: function (option) {
     var id = option.currentTarget.dataset.id;
+    var type = option.currentTarget.dataset.type;
     wx.navigateTo({
       url: '../list/list?id=' + id+'&type='+type
     })
