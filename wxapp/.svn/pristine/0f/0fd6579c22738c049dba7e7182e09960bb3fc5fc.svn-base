@@ -1,0 +1,38 @@
+/**swiper.wxss**/
+image{
+  max-width: 100%;
+  display: block;
+}
+.head-img{
+  width: 100%;
+}
+.head-img image{
+  width: 100%;
+}
+.hr{
+  width: 100%;
+  height: 2rpx;
+  margin: 30rpx  auto 40rpx auto;
+  background-color:#e4e4e2;
+}
+.title{
+  height: 40rpx;
+  margin: 40rpx 0 39rpx 20rpx;
+  color: #282832;
+}
+.content{
+  width: 100%;
+}
+.container{
+  padding: 25rpx 0;
+}
+.content image{
+  width: 750rpx;
+  margin: 0 auto;
+}
+.intro{
+  width: 90%;
+  margin: 30rpx 20rpx 30rpx 30rpx;
+  font-size: 36rpx;
+  color: #282832;
+}
