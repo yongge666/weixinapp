@@ -221,7 +221,10 @@ Page({
      
   },
   onReachBottom:function(){
-    //上拉触发
+    //上拉触发,需配置"enablePullDownRefresh":true
+    this.setData({
+      scrollTop: 0
+    });
     
   },
   scroll: function (event) {

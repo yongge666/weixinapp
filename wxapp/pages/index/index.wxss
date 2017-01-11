@@ -7,33 +7,30 @@ page{
   position: relative;
 }
 .search{
+  width: 90%;
+  height: 54rpx;
+  margin: 20rpx auto;
+  line-height: 54rpx;
+}
+.search-input{
   width: 600rpx;
   height: 54rpx;
   line-height: 54rpx;
   position: absolute;
-  top: 14rpx;
-  left: 40rpx;
-  z-index: 1;
-}
-.search-input{
-   width: 600rpx;
-  height: 54rpx;
-  line-height: 54rpx;
-  position: absolute;
-   top: 5rpx;
-   left: 40rpx;
+   top: 23rpx;
+   left: 75rpx;
   border-radius:20rpx;
-  color:#C2CBC6;
+  color:#98989b;
   font-size: 25rpx;
-   background-color: #ffffff;
+   background-color: #EFEFEF;
   opacity: 0.4;
 }
 .search-icon{
-  width: 34rpx;
-  height: 34rpx;
+  width: 80rpx;
+  height: 80rpx;
   position: absolute;
-  top: 12rpx;
-  right: -20rpx;
+  top: 10rpx;
+  right: 60rpx;
   z-index: 2;
   opacity: 1;
 }
@@ -96,7 +93,7 @@ image{
 .imgbox{
    height: 202rpx;
    position: relative;
-   border: 1px solid red;
+   /*border: 1px solid red;*/
    margin-right: 10rpx;
 }
 .mask-img{
@@ -174,6 +171,7 @@ image{
 
 .selected-movie{
   width: 100%;
+  overflow-x: hidden;
 }
 .selected-container{
   box-sizing: border-box;
@@ -190,7 +188,7 @@ item{
   width: 100%;
   height: 56rpx;
   line-height: 56rpx;
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #282832;
   word-break:keep-all;
 	white-space:nowrap;
@@ -219,7 +217,8 @@ item{
   height: 84rpx;
   line-height: 84rpx;
   border-top: 1rpx solid #efefef;
-  margin-top: 20rpx;
+  border-bottom: 1rpx solid #efefef;
+  margin: 20rpx 0 40rpx 0;
   padding: 0 20rpx 0 20rpx;
   position: relative;
 }

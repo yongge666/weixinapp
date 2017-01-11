@@ -15,7 +15,6 @@
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#282832",
     "navigationBarTitleText": "图解电影",
-    "navigationBarTextStyle":"white",
-    "enablePullDownRefresh":true
+    "navigationBarTextStyle":"white"
   }
 }
