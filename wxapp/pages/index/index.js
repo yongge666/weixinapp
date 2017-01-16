@@ -176,8 +176,9 @@ Page({
   onLoad: function () {
     //数据初始化
     var that = this;
-    wx.showNavigationBarLoading()
-    this.getUserInfo();
+    wx.showNavigationBarLoading();
+    //登录
+    //this.getUserInfo();
     var wallImgLen = that.data.wallImg.length;
     that.setData({
       wallImgLen: wallImgLen

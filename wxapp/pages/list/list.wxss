@@ -23,20 +23,22 @@ image {
 }
 
 .header {
+  width: 100%;
+  padding-left: 5rpx;
+  box-sizing: border-box;
   height: 23rpx;
   line-height: 23rpx;
-  width: 100%;
   position: absolute;
-  bottom: 98rpx;
-  left: 4%;
+  bottom: 93rpx;
+  left: 0;
   color: #fdf1f2;
-  /*background: red;*/
-  box-sizing: border-box;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,1));
+  opacity: 0.6;
   overflow: hidden;
 }
 
 .header .user {
-  width: 155rpx;
+  width: 160rpx;
 }
 
 .header view {

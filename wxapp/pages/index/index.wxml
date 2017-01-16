@@ -4,7 +4,7 @@
 <!--swiper开始-->
 <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
 <view class="search" bindtap="goSearch">
-      <view class="search-input" placeholder="搜索关键词" disabled="true"></view>
+      <view class="search-input" placeholder="搜索关键词" disabled="true">搜索关键词</view>
       <image class="search-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/index_search.png" mode="aspectFill" />
     </view>
   <view class="swiper-main">
@@ -26,8 +26,8 @@
     <view class="index-title">电影类型</view>
     <view class="pic-wall">
       <block wx:for="{{wallImg}}" wx:key="id" wx:for-index="i">
-        <view wx:if="{{i == 0}}" class="imgbox wall-img-first wall-img-common">
-          <view data-id="{{item.id}}" data-type="1" bindtap="goMovieType" class="mask-img wall-img-first wall-img-common">
+        <view data-id="{{item.id}}" data-type="1" bindtap="goMovieType" wx:if="{{i == 0}}" class="imgbox wall-img-first wall-img-common">
+          <view class="mask-img wall-img-first wall-img-common">
           </view>
           <view class="wall-img-first wall-img-common">
             <view class="type-text">{{item.name}}</view>
@@ -35,8 +35,8 @@
             <image src="{{item.pic}}" class="wall-img-first wall-img-common" mode="aspectFill" />
           </view>
         </view>
-        <view class="imgbox wall-img-last wall-img-common" wx:elif="{{i == wallImgLen-1}}">
-          <view data-id="{{item.id}}" data-type="1" bindtap="goMovieType" class="mask-img wall-img-last wall-img-common">
+        <view data-id="{{item.id}}" data-type="1" bindtap="goMovieType" class="imgbox wall-img-last wall-img-common" wx:elif="{{i == wallImgLen-1}}">
+          <view class="mask-img wall-img-last wall-img-common">
           </view>
           <view class="wall-img-last wall-img-common">
             <view class="type-text">{{item.name}}</view>
@@ -44,8 +44,8 @@
             <image src="{{item.pic}}" class="wall-img-last wall-img-common" mode="aspectFill" />
           </view>
         </view>
-        <view class="imgbox wall-img-normal wall-img-common" wx:else>
-          <view data-id="{{item.id}}" data-type="1" bindtap="goMovieType" class="mask-img wall-img-normal wall-img-common">
+        <view data-id="{{item.id}}" data-type="1" bindtap="goMovieType" class="imgbox wall-img-normal wall-img-common" wx:else>
+          <view class="mask-img wall-img-normal wall-img-common">
           </view>
           <view class="wall-img-normal wall-img-common">
             <view class="type-text">{{item.name}}</view>

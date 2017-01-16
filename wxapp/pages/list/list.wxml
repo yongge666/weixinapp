@@ -13,7 +13,7 @@
             <view class="played">
               <image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/index_icon_read@2x.png" mode="aspectFill" />{{item.stat_played}}
             </view>
-            <view calss="liked">
+            <view calss="liked" style="padding-right:0rpx">
               <image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/index_icon_like@2x.png" mode="aspectFill" />{{item.stat_liked}}
             </view>
           </view>

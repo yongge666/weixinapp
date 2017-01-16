@@ -4,33 +4,32 @@ page{
 }
 .search{
   width: 600rpx;
-  height: 54rpx;
-  line-height: 54rpx;
+  height: 66rpx;
+  line-height: 66rpx;
   position: absolute;
-  top: 14rpx;
+  top: 20rpx;
   z-index: 1;
 }
 
 .search-input{
-  width: 580rpx;
-  height: 54rpx;
-  line-height: 54rpx;
+  width: 544rpx;
+  height: 66rpx;
+  line-height: 66rpx;
   position: absolute;
   top: 5rpx;
   left: 20rpx;
-  padding-left: 40rpx;
-  border-radius:20rpx;
+  padding-left: 75rpx;
+  border-radius:33rpx;
   color:#C2CBC6;
   font-size: 30rpx;
   background-color: #EFEFEF;
-  opacity: 0.4;
 }
 .search-icon{
   width: 34rpx;
   height: 34rpx;
   position: absolute;
-  top: 12rpx;
-  left: 25rpx;
+  top: 22rpx;
+  left: 46rpx;
   z-index: 2;
   opacity: 1;
   /*background-color: red;*/
@@ -39,7 +38,7 @@ page{
   width: 10%;
   position: absolute;
   right: 18rpx;
-  top:18rpx;
+  top:32rpx;
   font-size: 33rpx;
 }
 
@@ -47,6 +46,7 @@ page{
   box-sizing: border-box;
   height: 100rpx;
   padding-left: 20rpx;
+  padding-top: 14rpx;
   line-height: 100rpx;
   color: #282832;
    
@@ -60,16 +60,17 @@ page{
   padding: 0 10rpx 0 10rpx;
 }
 
-.tag-btn{
+.tag-btn {
+  display: inline-block;
   box-sizing: border-box;
   max-width: 260rpx;
   min-width: 130rpx;
-  margin: 15rpx 10rpx 15rpx 10rpx;
-  padding: 0 30rpx 0rpx 30rpx;
+  margin: 15rpx 15rpx 15rpx 15rpx;
+  padding: 0 20rpx 0rpx 20rpx;
   text-align: center;
   height: 70rpx;
   line-height: 70rpx;
-  font-size: 26rpx;
+  font-size: 25rpx;
   border: 1rpx solid #c1c1c1;
   border-radius: 36rpx;
   color: #282832;
