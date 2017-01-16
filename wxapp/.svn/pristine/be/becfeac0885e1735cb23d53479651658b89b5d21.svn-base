@@ -1,0 +1,20 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/detail/detail",
+    "pages/search/searchResult",
+    "pages/search/searchIndex",
+    "pages/play/play",
+    "pages/rank/rank",
+    "pages/topic/topic",
+    "pages/grapic/grapic",
+    "pages/list/list"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#282832",
+    "navigationBarTitleText": "图解电影",
+    "navigationBarTextStyle":"white"
+  }
+}

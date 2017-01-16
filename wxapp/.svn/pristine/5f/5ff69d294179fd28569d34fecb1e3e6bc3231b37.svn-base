@@ -1,7 +1,5 @@
-/**searchResult.wxss**/
-page {
-  font-family: "PingFangSC-Regular", '微软雅黑', "Microsoft YaHei" !important;
-}
+/**list.wxss**/
+
 image {
   display: inline-block;
   max-width: 100%;
@@ -9,16 +7,13 @@ image {
 
 .container {
   width: 100%;
-  height: auto;
-  padding: 30rpx 0;
 }
 
 .content {
   width: 100%;
+  margin-top: -190rpx;
 }
-.total{
-   margin: 0 0 20rpx 20rpx;
-}
+
 .item {
   width: 46%;
   display: inline-block;
