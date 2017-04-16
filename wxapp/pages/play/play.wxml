@@ -1,27 +1,28 @@
+
 <!--play.wxml-->
- <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" 
-        class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
   <view class="head-img">
-    <image src="{{image}}" mode="aspectFill" />
+    <image src="{{image}}" mode="widthFix" />
   </view>
   <view class="title">《{{title}}》</view>
   <view class="hr"></view>
   <view class="content">
     <view class="container">
-        <view class="item" wx:key="id" wx:for="{{movie}}">
-            <image class="img" src="{{item.image}}" mode="widthFix" />
-            <view class="intro">{{item.intro}}</view>
-            <view class="hr"></view>
+      <view class="item" wx:key="id" wx:for="{{movie}}">
+        <image class="img" src="{{item.image}}" mode="widthFix" />
+        <view class="intro">{{item.intro}}</view>
+        <view class="hr"></view>
+      </view>
+      <view class="tips1">
+        <view wx:if="{{hidden}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;font-size:30rpx">
+          <icon type="waiting" size="20" />
+          <text>玩命的加载中...</text>
         </view>
-    
-    <view class="body-view">
-        <loading hidden="{{hidden}}" bindchange="loadingChange">
-            加载中...
-        </loading>
+      </view>
     </view>
-</view>
+
     <!--<image src="http://7xi5ca.com2.z0.glb.qiniucdn.com/8ad1d603f3e8a523c3ad5788b1a9e968" mode="aspectFill" />
     <view class="intro">{{detail.intro}}</view>
     <view class="hr"></view>-->
   </view>
-  </scroll-view>
+</scroll-view>

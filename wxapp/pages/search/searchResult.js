@@ -2,11 +2,12 @@ const POST_URL = 'https://auth.graphmovies.com/gmapi/weapp/interface';
 var page = 1;
 var page_size = 10;
 var keyWords = '';
-var total=0;
+var total = 0;
 Page({
   data: {
     movies: {},
-    total:0
+    total: 0,
+    hidden: 0
   },
   onLoad: function (options) {
     wx.showNavigationBarLoading();
@@ -24,9 +25,9 @@ Page({
       return false;
     }
     wx.setNavigationBarTitle({
-      title: '"'+keyWords + '"的搜索结果'
+      title: '"' + keyWords + '"的搜索结果'
     })
-    console.info(encodeURIComponent('{"keyword":"' + keyWords + '" ,"page":0,"page_size":10}'));
+    //console.info(encodeURIComponent('{"keyword":"' + keyWords + '" ,"page":0,"page_size":10}'));
     var listParam = {
       "apiid": "we_app_search",
       "params": encodeURIComponent('{"keyword":"' + keyWords + '" ,"page":0,"page_size":10}')
@@ -54,7 +55,7 @@ Page({
           console.info(jsonData)
           that.setData({
             movies: jsonData.list,
-            total:jsonData.total
+            total: jsonData.total
           })
         } else {
           wx.showModal({
@@ -87,6 +88,17 @@ Page({
       success: function (res) {
         if (res.data.status == 1) {
           var data = decodeURIComponent(decodeURIComponent(res.data.content));
+          var total1 = data.length;
+          var page_total = Math.ceil(total1 / page_size);
+          if (page < page_total) {
+            that.setData({
+              hidden: 1
+            });
+          } else {
+            that.setData({
+              hidden: 0
+            });
+          }
           var jsonData = JSON.parse(data);
           console.info(jsonData);
           var list = that.data.movies;
@@ -110,7 +122,7 @@ Page({
 
     });
   },
-  goDetail:function(options){
+  goDetail: function (options) {
     var id = options.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../detail/detail?id=' + id,

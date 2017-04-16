@@ -3,10 +3,9 @@
 <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
   <view class="container">
     <view class="content">
-    <view class="total">共{{total}}条搜索结果</view>
       <block wx:for="{{movies}}" wx:key="id" wx:for-index="i">
         <view class="item" data-id="{{item.id}}" bindtap="goDetail">
-          <image class="main-img" src="{{item.spic}}" mode="aspectFill" />
+          <image class="main-img" src="{{item.bpic}}" mode="aspectFill" />
           <view class="header">
             <view class="user">
               <image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/index_icon_avatar_small@2x.png" mode="aspectFill" />{{item.author.name}}
@@ -14,7 +13,7 @@
             <view class="played">
               <image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/index_icon_read@2x.png" mode="aspectFill" />{{item.stat_played}}
             </view>
-            <view calss="liked">
+            <view calss="liked" style="padding-right:0rpx">
               <image class="item-icon" src="http://ser3.graphmovie.com/appweb/weiapi/application/views/index/img/index_icon_like@2x.png" mode="aspectFill" />{{item.stat_liked}}
             </view>
           </view>
@@ -28,11 +27,5 @@
         </view>
       </block>
     </view>
-    <view class="tips1">
-        <view wx:if="{{hidden}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;font-size:30rpx;">
-          <icon type="waiting" size="20" />
-          <text>玩命的加载中...</text>
-        </view>
-      </view>
   </view>
 </scroll-view>

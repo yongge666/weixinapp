@@ -17,7 +17,7 @@ function isEmptyObject(e) {
 Page({
     data: {
         movie: {},
-        hidden: true
+        hidden: 0
     },
     onLoad: function (options) {
         //wx.clearStorage();
@@ -132,6 +132,17 @@ Page({
                 data = wx.getStorageSync('movie_play_' + movieId);
             }
 
+        }
+        var total = data.length;
+        var page_total = Math.ceil(total / page_size);
+        if (page < page_total) {
+            that.setData({
+                hidden: 1
+            });
+        }else{
+             that.setData({
+                hidden: 0
+            });
         }
         var start = page * page_size;
         var end = start + page_size;

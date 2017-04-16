@@ -14,7 +14,7 @@ Page({
     list: [
       { "id": "11902", "name": "我不是潘金莲", "subtitle": "我叫李雪莲", "tag": "剧情|喜剧", "level": "0", "gm_score": "8.23", "db_score": "6.9", "stat_played": "33.5万", "stat_liked": "1108", "stat_commented": "79", "bpic": "http://avatar.graphmovie.com/boo/movies/11902/11902_20161229104953_b.jpg", "spic": "http://avatar.graphmovie.com/boo/movies/11902/11902_20161229104953_s.jpg", "author": { "id": "99MOJ96M", "name": "兔子木木桑", "avatar": "http://ser3.graphmovie.com/gmspanel/appimages/avatars/4370548/20160909173508.jpg!/fw/200/fh/200" } }
     ],
-    hidden: 0,
+    hidden: true,
   },
   onShareAppMessage: function () {
     return {
@@ -72,6 +72,9 @@ Page({
   },
   loadMore: function (that) {
     wx.showNavigationBarLoading() //在标题栏中显示加载
+    // that.setData({
+    //   hidden: false
+    // });
     
     //console.info('{"page": '+page+',"page_size": '+page_size+'}');
     wx.request({
@@ -83,19 +86,6 @@ Page({
       },
       success: function (res) {
         var data = decodeURIComponent(decodeURIComponent(res.data.content));
-         var total = data.length;
-        var page_total = Math.ceil(total / page_size);
-        console.info(page)
-        console.info(page_total)
-        if (page < page_total) {
-            that.setData({
-                hidden: 1
-            });
-        }else{
-             that.setData({
-                hidden: 0
-            });
-        }
         var jsonData = JSON.parse(data);
         //console.info(jsonData);
         var list = that.data.list;

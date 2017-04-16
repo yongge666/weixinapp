@@ -5,7 +5,8 @@ var dataType = 1;
 var dataId = 0;
 Page({
   data: {
-    movies: {}
+    movies: {},
+    hidden: 0,
   },
   onLoad: function (options) {
     wx.showNavigationBarLoading();
@@ -80,6 +81,9 @@ Page({
   },
   loadMore: function (that) {
     wx.showNavigationBarLoading() //在标题栏中显示加载
+    that.setData({
+      hidden: 1
+    });
     wx.request({
       url: POST_URL,
       method: 'POST',
@@ -89,6 +93,17 @@ Page({
       },
       success: function (res) {
         var data = decodeURIComponent(decodeURIComponent(res.data.content));
+        var total = data.length;
+        var page_total = Math.ceil(total / page_size);
+        if (page < page_total) {
+          that.setData({
+            hidden: 1
+          });
+        } else {
+          that.setData({
+            hidden: 0
+          });
+        }
         var jsonData = JSON.parse(data);
         console.info(jsonData);
         var list = that.data.movies;
@@ -99,9 +114,6 @@ Page({
           movies: list
         });
         page++;
-        // that.setData({
-        //   hidden: true
-        // });
         wx.hideNavigationBarLoading() //完成停止加载
       },
       fail: function (e) {
@@ -110,7 +122,7 @@ Page({
 
     });
   },
-  goDetail:function(event){
+  goDetail: function (event) {
     var id = event.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../detail/detail?id=' + id,
